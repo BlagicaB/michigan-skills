@@ -59,37 +59,3 @@ window.ISDS = [
   { name: "West Shore ESD", short: "WSESD", counties: "Mason, Oceana, Lake", url: "https://www.wsesd.org", cte_center: "Summit Tech Center", cte_url: "https://www.wsesd.org/page/summit-tech-center", emc: "https://www.wsesd.org/page/asm-tech-early-college" },
   { name: "Wexford-Missaukee ISD", short: "WMISD", counties: "Wexford, Missaukee", url: "https://www.wmisd.org", cte_center: "Wexford-Missaukee Career Technical Center", cte_url: "https://www.wmisd.org/page/career-technical-center", emc: "https://www.wmisd.org/page/wexford-missaukee-early-college" }
 ];
-
-window.COLLEGES = [
-  ["Alpena Community College", "Alpena", "https://discover.alpenacc.edu/"],
-  ["Bay de Noc Community College", "Escanaba", "https://www.baycollege.edu"],
-  ["Delta College", "University Center", "https://www.delta.edu"],
-  ["Glen Oaks Community College", "Centreville", "https://www.glenoaks.edu"],
-  ["Gogebic Community College", "Ironwood", "https://www.gogebic.edu"],
-  ["Grand Rapids Community College", "Grand Rapids", "https://www.grcc.edu"],
-  ["Henry Ford College", "Dearborn", "https://www.hfcc.edu"],
-  ["Jackson College", "Jackson", "https://www.jccmi.edu"],
-  ["Kalamazoo Valley Community College", "Kalamazoo", "https://www.kvcc.edu"],
-  ["Kellogg Community College", "Battle Creek", "https://www.kellogg.edu"],
-  ["Kirtland Community College", "Grayling", "https://www.kirtland.edu"],
-  ["Lake Michigan College", "Benton Harbor", "https://www.lakemichigancollege.edu"],
-  ["Lansing Community College", "Lansing", "https://www.lcc.edu"],
-  ["Macomb Community College", "Warren and Clinton Township", "https://www.macomb.edu"],
-  ["Mid Michigan College", "Harrison and Mt. Pleasant", "https://midmich.edu"],
-  ["Monroe County Community College", "Monroe", "https://www.monroeccc.edu"],
-  ["Montcalm Community College", "Sidney", "https://www.montcalm.edu"],
-  ["Mott Community College", "Flint", "https://www.mcc.edu"],
-  ["Muskegon Community College", "Muskegon", "https://www.muskegoncc.edu"],
-  ["North Central Michigan College", "Petoskey", "https://www.ncmich.edu"],
-  ["Northwestern Michigan College", "Traverse City", "https://www.nmc.edu"],
-  ["Oakland Community College", "Oakland County", "https://www.oaklandcc.edu"],
-  ["St. Clair County Community College", "Port Huron", "https://sc4.edu"],
-  ["Schoolcraft College", "Livonia", "https://www.schoolcraft.edu"],
-  ["Southwestern Michigan College", "Dowagiac", "https://www.swmich.edu"],
-  ["Washtenaw Community College", "Ann Arbor", "https://www.wccnet.edu"],
-  ["Wayne County Community College District", "Detroit", "https://www.wcccd.edu"],
-  ["West Shore Community College", "Scottville", "https://www.westshore.edu"],
-  ["Bay Mills Community College (tribal)", "Brimley", "https://www.bmcc.edu"],
-  ["Keweenaw Bay Ojibwa Community College (tribal)", "Baraga", "https://www.kbocc.edu"],
-  ["Saginaw Chippewa Tribal College (tribal)", "Mt. Pleasant", "https://www.sagchip.edu"]
-];

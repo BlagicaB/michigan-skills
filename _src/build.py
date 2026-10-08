@@ -76,6 +76,7 @@ def page(slug, title, desc, body, scripts, js=()):
         <li><a href="{base}students/">Students &amp; parents</a></li>
         <li><a href="{base}adults/">Adults &amp; recent grads</a></li>
         <li><a href="{base}trades/">Trades &amp; unions</a></li>
+        <li><a href="{base}colleges/">Community colleges</a></li>
         <li><a href="{base}programs/">All programs</a></li>
       </ul>
     </div>

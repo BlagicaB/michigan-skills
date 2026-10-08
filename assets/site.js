@@ -158,11 +158,32 @@
     el.hidden = false;
   });
 
-  // Community college table (districts page)
+  // Community colleges: table on the districts page, cards on the colleges page
+  var CC = window.COLLEGES || [];
   var cr = document.getElementById("college-rows");
-  if (cr && window.COLLEGES) {
-    cr.innerHTML = window.COLLEGES.map(function (c) {
-      return "<tr><td><a href='" + esc(c[2]) + "' target='_blank' rel='noopener'>" + esc(c[0]) + "</a></td><td>" + esc(c[1]) + "</td></tr>";
+  if (cr && CC.length) {
+    cr.innerHTML = CC.map(function (c) {
+      return "<tr><td><a href='" + esc(c.url) + "' target='_blank' rel='noopener'>" + esc(c.name) + "</a></td><td>" + esc(c.city) + "</td></tr>";
     }).join("");
+  }
+  var cc = document.getElementById("college-cards");
+  if (cc && CC.length) {
+    var cq = document.getElementById("college-search"), ccount = document.getElementById("college-count");
+    var link = function (u, label) { return u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + label + '</a>' : ""; };
+    var crender = function () {
+      var term = (cq.value || "").toLowerCase().trim();
+      var list = CC.filter(function (c) { return !term || (c.name + " " + c.city + " " + c.programs).toLowerCase().indexOf(term) > -1; });
+      ccount.textContent = list.length + " of " + CC.length + " colleges";
+      cc.innerHTML = list.map(function (c) {
+        var links = [link(c.dual, "High school students"), link(c.reconnect, "Reconnect and free tuition"), link(c.trades, "Trades and technical programs")].filter(Boolean);
+        if (!links.length) links = [link(c.url, "College website")];
+        return '<article class="result" style="--c:var(--gold)">' + (c.tribal ? '<span class="tag">Tribal college</span>' : "") + '<span class="tag">' + esc(c.city) + '</span>' +
+          '<h3><a href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(c.name.replace(" (tribal)", "")) + '</a></h3>' +
+          (c.programs ? '<p><strong>Hands-on programs include:</strong> ' + esc(c.programs) + '</p>' : "") +
+          '<p class="meta">' + links.join(" · ") + '</p></article>';
+      }).join("");
+    };
+    cq.addEventListener("input", crender);
+    crender();
   }
 })();
