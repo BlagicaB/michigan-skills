@@ -1,0 +1,43 @@
+<!--meta
+{"slug": "programs/", "title": "All programs", "desc": "A searchable list of every Michigan program for skills, training and careers on this site: school options, college credit, apprenticeships, adult training, employer incentives and educator resources.", "scripts": ["programs"]}
+-->
+<section class="hero">
+  <div class="wrap narrow">
+    <p class="eyebrow">The full list</p>
+    <h1>Every program, <em>one search box.</em></h1>
+    <p class="lede">Filter by who it's for or by type, or just search. Every card links to the official source and, where we have one, our plain-English guide.</p>
+  </div>
+</section>
+<section class="section" style="border-top:0;padding-top:0">
+  <div class="wrap">
+    <div class="finder" id="directory">
+      <label for="dir-search" class="q-label">Search</label>
+      <input id="dir-search" class="search" type="search" placeholder="e.g. welding, free college, veteran, FAFSA" autocomplete="off">
+      <div class="q" style="margin-top:1rem">
+        <span class="q-label" id="d1">Who it's for</span>
+        <div class="chips" data-q="who" role="group" aria-labelledby="d1">
+          <button class="chip" data-v="ms">Middle school</button>
+          <button class="chip" data-v="hs">High school</button>
+          <button class="chip" data-v="grad">Recent grads</button>
+          <button class="chip" data-v="adult">Adults</button>
+          <button class="chip" data-v="nodiploma">No diploma</button>
+          <button class="chip" data-v="employer">Employers</button>
+          <button class="chip" data-v="educator">Educators</button>
+        </div>
+      </div>
+      <div class="q">
+        <span class="q-label" id="d2">Type</span>
+        <div class="chips" data-q="line" role="group" aria-labelledby="d2">
+          <button class="chip" data-v="school">School</button>
+          <button class="chip" data-v="college">College credit</button>
+          <button class="chip" data-v="apprentice">Trades and apprenticeship</button>
+          <button class="chip" data-v="adult">Adult training</button>
+          <button class="chip" data-v="employer">Employer</button>
+          <button class="chip" data-v="guide">Tools and guides</button>
+        </div>
+      </div>
+      <p class="count" id="dir-count" aria-live="polite"></p>
+      <div class="results" id="dir-results"></div>
+    </div>
+  </div>
+</section>

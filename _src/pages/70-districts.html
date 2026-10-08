@@ -1,0 +1,111 @@
+<!--meta
+{"slug": "districts/", "title": "Find your district", "desc": "Find your Michigan intermediate school district (ISD), its career tech center and your nearest community college, plus the exact questions to ask about CTE, dual enrollment and Early Middle College.", "scripts": ["isds"]}
+-->
+<section class="hero">
+  <div class="wrap narrow">
+    <p class="eyebrow">What does my area offer?</p>
+    <h1>Your school district is only <em>half the answer.</em></h1>
+    <p class="lede">Michigan has hundreds of local school districts, plus charter schools. Most of the expensive hands-on programs (welding labs, health science, auto tech, construction) are not run by your local district. They are run by one of 56 intermediate school districts, called an ISD, RESA or ESA, which serves every district in a county or region. So to see your real options, you need to know your ISD.</p>
+    <div class="toc">
+      <a href="#how">How it works</a>
+      <a href="#isd-finder">Find your ISD</a>
+      <a href="#colleges">Community colleges</a>
+      <a href="#ask">What to ask</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap narrow">
+    <h2>Three layers, one student</h2>
+    <div class="grid three">
+      <div class="card"><h3>Your local district</h3><p>Your high school. It sets your schedule, approves dual enrollment and virtual courses and may run some CTE classes of its own.</p></div>
+      <div class="card"><h3>Your ISD</h3><p>Usually runs the career tech center, often an Early Middle College and countywide programs. Students typically spend half the school day there and the rest at their home high school.</p></div>
+      <div class="card"><h3>Your community college</h3><p>Where dual enrollment classes, Early Middle College credits and many apprenticeship classes actually happen.</p></div>
+    </div>
+    <div class="callout lake">
+      <p><strong>Every ISD does it differently.</strong> Some run one big tech center (Kent, Ottawa, Ingham). Some split programs across high schools in a consortium (much of Macomb and Wayne). Some partner with a community college for everything. That is why two families 20 miles apart can get completely different answers to the same question.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="isd-finder">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Find your ISD</h2>
+      <p>Type your county, the ISD name or a tech center. Not sure which county your district belongs to? Your high school's website footer or the front office will know.</p>
+    </div>
+    <label for="isd-search" class="q-label">Search by county or name</label>
+    <input id="isd-search" class="search" type="search" placeholder="e.g. Kent, Wayne, Grand Traverse" autocomplete="off">
+    <p class="count" id="isd-count" aria-live="polite"></p>
+    <div class="table-wrap" style="margin-top:.8rem">
+      <table>
+        <thead><tr><th>ISD</th><th>Main counties</th><th>Career and technical education</th><th>Early Middle College</th></tr></thead>
+        <tbody id="isd-rows"></tbody>
+      </table>
+    </div>
+    <p class="small muted" style="margin-top:.8rem">ISD lines do not follow county lines exactly, and some districts belong to a neighboring county's ISD. Where a link is blank or says "Ask," we could not confirm the program on the ISD's own website. That does not mean it doesn't exist. Many local high schools run their own Early Middle College with a nearby community college, so ask your counselor. Websites checked October 2026.</p>
+  </div>
+</section>
+
+<section class="section" id="snapshots">
+  <div class="wrap narrow">
+    <h2>District snapshots</h2>
+    <p>A closer look at one district at a time: what it runs, what its students can reach nearby and what to ask.</p>
+    <ul>
+      <li><a href="grosse-pointe/"><strong>Grosse Pointe Public Schools</strong></a> (Wayne County)</li>
+    </ul>
+    <p class="small muted">Want your district next? <a href="../partners/#inquire">Tell us</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="state-tools">
+  <div class="wrap narrow">
+    <h2>Look up the exact programs near you</h2>
+    <p>The state keeps a searchable list of every approved CTE program. Here is how to use it.</p>
+    <ol>
+      <li>Open <a href="https://www.mischooldata.org/cte-programs-offered/" target="_blank" rel="noopener">CTE Programs Offered on MI School Data</a>.</li>
+      <li>In the search box, type your <strong>ISD's name</strong>, not just your district. That way the tech center programs show up too.</li>
+      <li>Set Program Type to <strong>Secondary CTE</strong>. You get a map and a table of every approved program and the building it's taught in.</li>
+      <li>Have a specific career in mind? Clear the location and pick the program (welding, nursing assistant, IT) to see every school nearby that teaches it.</li>
+      <li>Then go to the tech center's own website for application windows, bus routes and half-day schedules, because the state list doesn't have those.</li>
+    </ol>
+    <p>For Early Middle College, use the <a href="https://www.mischooldata.org/early-middle-college-locations/" target="_blank" rel="noopener">EMC locations map</a> or MDE's <a href="https://www.michigan.gov/mde/-/media/Project/Websites/mde/CTE/cte_emc/Publications/EMCs-by-Entity-Type.pdf" target="_blank" rel="noopener">2026-27 list of all approved EMCs</a> (about 190, by county).</p>
+  </div>
+</section>
+
+<section class="section" style="padding:1.5rem 0">
+  <div class="wrap narrow"><div class="callout lake"><p><strong>Work at an ISD or district?</strong> A <a href="../partners/#ways">county edition</a> pre-loads your tech center, Early Middle College and deadlines into every family's plan in your county, with QR codes for open houses.</p></div></div>
+</section>
+
+<section class="section" id="colleges">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Michigan's community and tribal colleges</h2>
+      <p>These are the schools where Reconnect, the Community College Guarantee and most dual enrollment are used. "In-district" means you live inside the college's taxing district, which makes tuition lowest.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>College</th><th>Where</th></tr></thead>
+        <tbody id="college-rows"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ask">
+  <div class="wrap narrow">
+    <h2>Questions to ask your school</h2>
+    <p>Print this or screenshot it. Bring it to a counselor meeting. Every one of these has a real answer, and you are entitled to it.</p>
+    <ul class="checklist">
+      <li>Which ISD do we belong to, and which CTE programs at the tech center can our students attend? Is there transportation?</li>
+      <li>Does our district offer an Early Middle College? If not, can students join the ISD's or a neighboring district's?</li>
+      <li>What is the deadline to apply for dual enrollment next semester, and which colleges do we partner with?</li>
+      <li>How do I sign up for free virtual courses, and what is the deadline?</li>
+      <li>Which AP courses do we offer, and is there help with the exam fee?</li>
+      <li>Do any CTE programs here lead to college credit, an industry certification or a registered apprenticeship?</li>
+      <li>Who at the school helps with work-based learning or internships?</li>
+      <li>Can my student's Educational Development Plan be updated to include these?</li>
+    </ul>
+  </div>
+</section>

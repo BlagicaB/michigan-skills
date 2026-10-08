@@ -1,0 +1,231 @@
+<!--meta
+{"slug": "", "title": "Michigan Skills", "desc": "Every public path into skilled work in Michigan in one place: dual enrollment, Early Middle College, free virtual courses, CTE, apprenticeships, unions, Michigan Reconnect and how employers get paid to train.", "scripts": ["programs", "isds", "explore", "sponsors"], "js": ["journey"]}
+-->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Michigan Skills · school, training and work</p>
+    <h1>Michigan has <em>so many resources.</em> We put them all in one place.</h1>
+    <p class="lede">Free college classes in high school. A free 13th year. Free community college. Apprenticeships that pay you from day one. Money for employers who train. It all exists in this state, but it's spread across dozens of agencies, 56 school districts, 31 colleges and hundreds of training programs, so it's hard to find. We gathered it here, in one fell swoop, in plain English.</p>
+    <p><a class="btn" href="#here">Show me where I am on the map</a> <a class="btn ghost" href="newsletter/">Get the newsletter</a></p>
+    <div class="toc" aria-label="Jump to">
+      <a href="#here">Find where you are</a>
+      <a href="#who">Guides by reader</a>
+      <a href="#five">The five things most people miss</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="here">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Step 1 · find yourself</p>
+      <h2>You are here</h2>
+      <p>Michigan's options work like a transit map: five lines that cross and all end at a good job. Tell us where you're standing and the map lights up every stop you can reach from there.</p>
+    </div>
+
+    <div class="chips stage-chips" id="stage-chips" role="group" aria-label="Where are you right now?">
+      <button class="chip" data-stage="ms" aria-pressed="false">Middle school (6-8)</button>
+      <button class="chip" data-stage="hs" aria-pressed="false">High school (9-12)</button>
+      <button class="chip" data-stage="grad" aria-pressed="false">Just graduated</button>
+      <button class="chip" data-stage="adult" aria-pressed="false">Adult, have a diploma</button>
+      <button class="chip" data-stage="nodiploma" aria-pressed="false">Adult, no diploma yet</button>
+      <button class="chip" data-stage="employer" aria-pressed="false">Employer</button>
+      <button class="chip" data-stage="educator" aria-pressed="false">Educator or counselor</button>
+    </div>
+
+    <div class="map-wrap" id="map" style="margin-top:1rem">
+      <svg viewBox="0 0 1000 440" role="img" aria-labelledby="map-title map-desc" id="transit">
+        <title id="map-title">Michigan skills pathways as a transit map</title>
+        <desc id="map-desc">Five lines lead to a skilled career. The school line runs from career exploration in middle school through high school courses to a university. The college credit line runs from dual enrollment to an Early Middle College 13th year to free community college. The trades line runs from career and technical education at an ISD tech center to a registered apprenticeship. The adult line runs from adult education to Michigan Reconnect or Michigan Works! training and joins the apprenticeship station. The employer line runs from hosting student work-based learning to sponsoring apprentices to getting reimbursed for training.</desc>
+        <style>
+          .ln { fill: none; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; transition: opacity .35s; }
+          .st { fill: var(--card); stroke-width: 4.5; }
+          .stop { transition: opacity .35s; }
+          .lbl { font: 600 13.5px var(--text); fill: var(--ink); }
+          .sub { font: 400 12px var(--text); fill: var(--muted); }
+          .col { font: 700 11px var(--text); letter-spacing: .14em; fill: var(--muted); text-transform: uppercase; }
+          .xfer { fill: none; stroke: var(--muted); stroke-width: 2.5; stroke-dasharray: 3 5; transition: opacity .35s; }
+          #transit.focus .ln:not(.on), #transit.focus .stop:not(.on), #transit.focus .xfer { opacity: .14; }
+          #transit.focus .stop.on .st { fill: var(--paper); stroke-width: 6; }
+          #pin { transition: transform .45s cubic-bezier(.3,1.4,.5,1), opacity .3s; }
+          .pin-pulse { fill: var(--orange); opacity: .35; transform-origin: center; transform-box: fill-box; animation: pulse 1.6s ease-out infinite; }
+          @keyframes pulse { from { transform: scale(.6); opacity: .5; } to { transform: scale(2.2); opacity: 0; } }
+          @media (prefers-reduced-motion: reduce) { .pin-pulse { animation: none; } #pin { transition: none; } }
+        </style>
+        <text class="col" x="80" y="24">Middle school</text>
+        <text class="col" x="268" y="24">High school</text>
+        <text class="col" x="470" y="24">Year 13 or after</text>
+        <text class="col" x="690" y="24">Training</text>
+        <text class="col" x="876" y="24">The goal</text>
+
+        <path class="ln" data-line="school" style="stroke:var(--lake)" d="M40 70 H760 C820 70 840 200 905 214"/>
+        <path class="ln" data-line="credit" style="stroke:var(--gold)" d="M260 150 H760 C820 150 850 214 905 220"/>
+        <path class="ln" data-line="trades" style="stroke:var(--orange)" d="M260 230 H905"/>
+        <path class="ln" data-line="adult" style="stroke:var(--plum)" d="M470 310 H760 C820 310 850 246 905 240"/>
+        <path class="ln" data-line="employer" style="stroke:var(--steel)" d="M260 390 H760 C830 390 840 260 905 246"/>
+        <path class="xfer" d="M300 70 V150"/>
+        <path class="xfer" d="M740 230 V310"/>
+        <path class="xfer" d="M520 150 V230"/>
+
+        <g class="stop" data-stop="explore"><circle class="st" style="stroke:var(--lake)" cx="100" cy="70" r="10"/><text class="lbl" x="58" y="100">Career exploration</text><text class="sub" x="58" y="116">Plan starts in grade 7</text></g>
+        <g class="stop" data-stop="ap"><circle class="st" style="stroke:var(--lake)" cx="300" cy="70" r="10"/><text class="lbl" x="318" y="58">AP + free virtual courses</text></g>
+        <g class="stop" data-stop="grad"><circle class="st" style="stroke:var(--lake)" cx="520" cy="70" r="10"/><text class="lbl" x="538" y="58">Graduate</text></g>
+        <g class="stop" data-stop="uni"><circle class="st" style="stroke:var(--lake)" cx="740" cy="70" r="10"/><text class="lbl" x="700" y="100">University</text></g>
+        <g class="stop" data-stop="dual"><circle class="st" style="stroke:var(--gold)" cx="300" cy="150" r="10"/><text class="lbl" x="318" y="138">Dual enrollment</text><text class="sub" x="318" y="176">College classes, district pays</text></g>
+        <g class="stop" data-stop="emc"><circle class="st" style="stroke:var(--gold)" cx="520" cy="150" r="10"/><text class="lbl" x="538" y="138">Early Middle College</text><text class="sub" x="538" y="176">Free 13th year</text></g>
+        <g class="stop" data-stop="ccg"><circle class="st" style="stroke:var(--gold)" cx="740" cy="150" r="10"/><text class="lbl" x="728" y="178" text-anchor="end">Free community</text><text class="lbl" x="728" y="194" text-anchor="end">college</text></g>
+        <g class="stop" data-stop="cte"><circle class="st" style="stroke:var(--orange)" cx="300" cy="230" r="10"/><text class="lbl" x="318" y="218">CTE at an ISD tech center</text><text class="sub" x="318" y="256">Welding, health, IT, auto, more</text></g>
+        <g class="stop" data-stop="youth"><circle class="st" style="stroke:var(--orange)" cx="520" cy="230" r="10"/><text class="lbl" x="538" y="218">Youth or pre-apprenticeship</text></g>
+        <g class="stop" data-stop="app"><circle class="st" style="stroke:var(--orange)" cx="740" cy="230" r="10"/><text class="lbl" x="728" y="260" text-anchor="end">Registered apprenticeship</text><text class="sub" x="728" y="276" text-anchor="end">Union or open shop, paid</text></g>
+        <g class="stop" data-stop="adulted"><circle class="st" style="stroke:var(--plum)" cx="520" cy="310" r="10"/><text class="lbl" x="470" y="340">Adult ed or GED</text><text class="sub" x="470" y="356">Free</text></g>
+        <g class="stop" data-stop="reconnect"><circle class="st" style="stroke:var(--plum)" cx="740" cy="310" r="10"/><text class="lbl" x="620" y="340">Reconnect or Michigan Works!</text></g>
+        <g class="stop" data-stop="intern"><circle class="st" style="stroke:var(--steel)" cx="300" cy="390" r="10"/><text class="lbl" x="268" y="420">Host student internships</text></g>
+        <g class="stop" data-stop="sponsor"><circle class="st" style="stroke:var(--steel)" cx="520" cy="390" r="10"/><text class="lbl" x="488" y="420">Sponsor apprentices</text></g>
+        <g class="stop" data-stop="reimb"><circle class="st" style="stroke:var(--steel)" cx="740" cy="390" r="10"/><text class="lbl" x="700" y="420">Get reimbursed to train</text></g>
+
+        <rect x="896" y="190" width="96" height="80" rx="14" style="fill:var(--ink)"/>
+        <text x="944" y="222" text-anchor="middle" style="font:800 14px var(--head);fill:var(--paper)">Skilled</text>
+        <text x="944" y="240" text-anchor="middle" style="font:800 14px var(--head);fill:var(--paper)">career in</text>
+        <text x="944" y="258" text-anchor="middle" style="font:800 14px var(--head);fill:var(--paper)">Michigan</text>
+
+        <g id="pin" style="opacity:0" transform="translate(100 70)" aria-hidden="true">
+          <circle class="pin-pulse" cx="0" cy="0" r="14"/>
+          <path d="M0 -12 C-11 -12 -15 -24 -15 -30 A15 15 0 1 1 15 -30 C15 -24 11 -12 0 -12 Z" transform="translate(0 0)" style="fill:var(--orange)"/>
+          <circle cx="0" cy="-31" r="5.5" style="fill:var(--paper)"/>
+          <rect x="-50" y="-70" width="100" height="22" rx="4" style="fill:var(--ink)"/>
+          <text x="0" y="-55" text-anchor="middle" style="font:800 11px var(--text);letter-spacing:.12em;fill:var(--paper)">YOU ARE HERE</text>
+        </g>
+      </svg>
+      <div class="map-legend">
+        <span><i style="background:var(--lake)"></i>School line</span>
+        <span><i style="background:var(--gold)"></i>College credit line</span>
+        <span><i style="background:var(--orange)"></i>Trades line</span>
+        <span><i style="background:var(--plum)"></i>Adult line</span>
+        <span><i style="background:var(--steel)"></i>Employer line</span>
+        <span><i style="background:none;border-top:2.5px dashed var(--muted);height:0"></i>Transfer point</span>
+      </div>
+    </div>
+
+    <div id="teaser" class="teaser" hidden aria-live="polite"></div>
+
+    <div id="quiz" class="quiz" hidden>
+      <div class="quiz-head">
+        <p class="eyebrow" style="margin:0">Step 2 · your full plan</p>
+        <div class="progress" aria-hidden="true"><span id="quiz-bar"></span></div>
+        <p class="small muted" id="quiz-step-label" style="margin:0"></p>
+      </div>
+      <form id="quiz-form" novalidate>
+        <fieldset class="qstep" data-step="1">
+          <div id="q-school-rows" hidden>
+            <legend>Who's filling this out?</legend>
+            <div class="chips" id="q-role" data-single="role">
+              <button type="button" class="chip" data-v="parent">Parent or guardian</button>
+              <button type="button" class="chip" data-v="student">The student</button>
+            </div>
+            <legend style="margin-top:1.2rem">What grade is the student in right now?</legend>
+            <div class="chips" id="q-grade" data-single="grade"></div>
+            <div style="height:1.2rem"></div>
+          </div>
+          <legend>Which county do you live or work in?</legend>
+          <p class="small muted">This tells us your ISD, its tech center and the Early Middle College near you.</p>
+          <select id="q-county" name="county" class="search" required><option value="">Choose a county</option></select>
+        </fieldset>
+        <fieldset class="qstep" data-step="2" hidden>
+          <div id="q-traits-block">
+            <legend id="q-traits-legend">What do they love doing? <span class="muted small">Pick any. Not knowing yet is normal.</span></legend>
+            <div class="chips" id="q-traits"></div>
+            <div style="height:1.2rem"></div>
+          </div>
+          <legend id="q-interests-legend">Any career areas already on the radar? <span class="muted small">Optional.</span></legend>
+          <div class="chips" id="q-interests" data-multi="interests"></div>
+        </fieldset>
+        <fieldset class="qstep" data-step="3" hidden>
+          <legend>What matters most right now?</legend>
+          <div class="chips" id="q-goal" data-single="goal"></div>
+          <legend style="margin-top:1.2rem">When do you want to start?</legend>
+          <div class="chips" id="q-when" data-single="when">
+            <button type="button" class="chip" data-v="now">This school year</button>
+            <button type="button" class="chip" data-v="next">Next year</button>
+            <button type="button" class="chip" data-v="exploring">Just exploring</button>
+          </div>
+          <label class="field" style="margin-top:1.2rem"><span id="q-question-label">Anything on your mind? Ask in your own words. <span class="muted small">Optional.</span></span>
+            <textarea class="search" id="q-question" rows="3" maxlength="800" placeholder="e.g. He likes to tinker but doesn't know what he wants. Should he try a summer camp at Michigan Tech or something closer to home?"></textarea></label>
+        </fieldset>
+        <fieldset class="qstep" data-step="4" hidden>
+          <legend>Where should we send your plan?</legend>
+          <p class="small muted" id="q-who-note">You'll see the full plan right away. We'll also email you a copy with the deadlines.</p>
+          <div class="grid two" style="margin-top:.8rem">
+            <label class="field"><span>First name</span><input class="search" name="name" id="q-name" autocomplete="given-name" required></label>
+            <label class="field"><span id="q-email-label">Email</span><input class="search" type="email" name="email" id="q-email" autocomplete="email" required></label>
+            <label class="field" id="q-org-field" hidden><span>Organization</span><input class="search" name="org" id="q-org" autocomplete="organization"></label>
+          </div>
+          <label class="check"><input type="checkbox" id="q-consent" required> <span id="q-consent-text">Email me my plan and occasional updates on Michigan programs. I'm 13 or older, or I'm a parent or guardian. We never sell your information.</span></label>
+          <input type="text" name="website" id="q-hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        </fieldset>
+        <p class="form-error" id="quiz-error" role="alert"></p>
+        <div class="quiz-nav">
+          <button type="button" class="btn ghost" id="quiz-back">Back</button>
+          <button type="button" class="btn" id="quiz-next">Next</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="plan" class="plan" hidden></div>
+  </div>
+</section>
+
+<section class="section" id="who">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Or read the guide for you</h2>
+      <p>Each page is written for one kind of reader and is free to read in full.</p>
+    </div>
+    <div class="who-grid">
+      <a class="who" style="--c:var(--lake)" href="students/"><strong>A student in grades 6-12</strong><span>Free college credit, CTE, virtual classes and what to ask your counselor.</span></a>
+      <a class="who" style="--c:var(--lake)" href="students/#parents"><strong>A parent or guardian</strong><span>What your district has to offer, what it costs you (usually nothing) and the deadlines.</span></a>
+      <a class="who" style="--c:var(--gold)" href="adults/#recent-grads"><strong>Just graduated</strong><span>Free community college, the Achievement Scholarship and paid apprenticeships.</span></a>
+      <a class="who" style="--c:var(--plum)" href="adults/"><strong>An adult who wants a new skill</strong><span>Michigan Reconnect, Michigan Works!, finishing a diploma and switching careers.</span></a>
+      <a class="who" style="--c:var(--orange)" href="trades/"><strong>Interested in the trades</strong><span>Union and open-shop apprenticeships, what each trade pays you to learn and licensing.</span></a>
+      <a class="who" style="--c:var(--steel)" href="employers/"><strong>An employer who needs workers</strong><span>Register an apprenticeship, get reimbursed for training and work with schools.</span></a>
+      <a class="who" style="--c:var(--green)" href="educators/"><strong>A teacher, counselor or coach</strong><span>CTE, community college, mentors and job center staff. Tools and talking points.</span></a>
+      <a class="who" style="--c:var(--green)" href="funding/"><strong>Curious how the money works</strong><span>Per-pupil funding for regular students versus CTE students, and who pays for what.</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section partner-band" id="for-partners">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <p class="eyebrow" style="margin:0 0 .4rem">For employers, training centers, colleges and ISDs</p>
+        <h2 style="margin:0 0 .4rem">Be on the map when they choose.</h2>
+        <p style="margin:0">Families and job seekers tell us where they are and what they want. Partners show up in their plans, labeled, at that exact moment. Every program stays listed free.</p>
+      </div>
+      <a class="btn" href="partners/">Partner with us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="newsletter">
+  <div class="wrap narrow">
+    <p class="eyebrow">The Michigan Skills newsletter</p>
+    <h2>Deadlines and free money, twice a month.</h2>
+    <p>Application windows, scholarship deadlines, new programs and one plain-English explainer each issue. For parents, students, adults, employers and the people who help them. Free, and you can unsubscribe anytime.</p>
+    <iframe data-tally-src="https://tally.so/embed/b50a81?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0" title="Get the Michigan Skills newsletter"></iframe>
+    <p class="small muted">Form not loading? <a href="https://tally.so/r/b50a81" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </div>
+</section>
+
+<section class="section" id="five">
+  <div class="wrap narrow">
+    <h2>Five things most Michigan families never hear about</h2>
+    <ol>
+      <li><strong>Two free online classes every semester, starting in grade 6.</strong> Not two total. Two per term, paid for by your district. <a href="students/#virtual">How it works</a></li>
+      <li><strong>A free 13th year of high school</strong> that ends with an associate degree. It's called Early Middle College, and you have to plan for it by grade 10. <a href="students/#emc">How it works</a></li>
+      <li><strong>CTE can replace Algebra II and a world language</strong> toward graduation. Welding in the morning and AP Chemistry in the afternoon is allowed. <a href="students/#cte">How it works</a></li>
+      <li><strong>Community college is free</strong> for every graduate since 2023 and, as of this year, for adults 21 and older without a degree. <a href="adults/">How it works</a></li>
+      <li><strong>Employers can be reimbursed for training new hires,</strong> often half their wages during training, through your local Michigan Works! office. <a href="employers/">How it works</a></li>
+    </ol>
+  </div>
+</section>
