@@ -355,3 +355,11 @@ details summary .faq-q { display: inline; font-size: 1.02rem; margin: 0; }
 .answer { font-size: 1.2rem; line-height: 1.55; max-width: 46rem; color: var(--ink); border-left: 5px solid var(--orange); padding-left: 1rem; }
 .answer strong { color: var(--ink); }
 table th[scope], .table-wrap tbody th { white-space: normal; width: 34%; }
+
+/* Home hero with the full illustrated logo */
+.hero-grid { display: grid; gap: 1.5rem; align-items: center; }
+.hero-copy { min-width: 0; }
+.hero-art { margin: 0; }
+.hero-art img { width: 100%; height: auto; max-width: 420px; display: block; margin-left: auto; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); } }
+@media (max-width: 899px) { .hero-art { order: -1; } .hero-art img { max-width: 190px; margin: 0; } }
