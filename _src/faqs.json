@@ -1,0 +1,109 @@
+{
+  "students/": {
+    "group": "Students and parents",
+    "items": [
+      ["How many free online classes can a Michigan student take?",
+       "Up to two per semester or trimester, in grades 6-12, paid for by the district. That's two per term, not two total. The district pays up to 6.67% of the per-pupil foundation allowance per course, about $687 in 2026-27, and a district can approve more. A parent has to agree unless the student is 18.",
+       "https://legislature.mi.gov/Laws/MCL?objectName=mcl-388-1621f", "MCL 388.1621f"],
+      ["What grade can a student start dual enrollment in Michigan?",
+       "Grade 9. With a qualifying PSAT, SAT or ACT score, a student can take college classes the district pays for, up to 10 courses during high school. Students who start in grade 9 take two a year at first, and juniors and seniors can take up to six a year.",
+       "https://legislature.mi.gov/Laws/MCL?objectName=mcl-388-513", "MCL 388.513"],
+      ["What is the 13th year of high school in Michigan?",
+       "It's an Early Middle College: an approved five-year high school program where students stay a fifth year and finish an associate degree, 60 college credits, a certificate or part of an apprenticeship. The district keeps receiving funding for that fifth year, so tuition is generally covered. Michigan has about 190 of them, and students must be enrolled by the fall of junior year.",
+       "https://www.michigan.gov/mde/services/flexible-learning/middle-colleges", "Michigan Department of Education"],
+      ["Does CTE count toward Michigan's graduation requirements?",
+       "Yes. A state-approved career and technical education program can count toward Algebra II, one of the two world language credits and the third science credit. A Personal Curriculum can adjust a few more requirements, and a district must develop one if a parent asks after grade 9.",
+       "https://www.michigan.gov/mde/-/media/Project/Websites/mde/Year/2020/12/10/CTE_MMC_Exchange_Credits_20200923.pdf", "Michigan Department of Education"],
+      ["How much does an AP exam cost in Michigan?",
+       "The exam is $99, but low-income students pay $5. College Board and the state cover the rest for students who qualify for free or reduced-price lunch. Michigan has no statewide rule for how much college credit a score earns, so each college decides.",
+       "https://apcentral.collegeboard.org/exam-administration-ordering-scores/ordering-fees/exam-fees/state-assistance/michigan", "College Board"],
+      ["When does a Michigan student's Educational Development Plan start?",
+       "In grade 7. Every student must get the chance to build an Educational Development Plan in grade 7, review it in grade 8 before high school and update it every year of high school. It's the career and course plan counselors use for scheduling.",
+       "https://www.michigan.gov/mde/resources/career-development-resources/edp", "Michigan Department of Education"]
+    ]
+  },
+  "adults/": {
+    "group": "Adults and recent graduates",
+    "items": [
+      ["Is community college free in Michigan?",
+       "For many people, yes. High school graduates from 2023 on get free in-district tuition for up to three years through the Community College Guarantee if they file the FAFSA and enroll within 15 months. Adults 21 and older without a degree can get free in-district tuition through Michigan Reconnect.",
+       "https://www.michigan.gov/mistudentaid/programs/michigan-achievement-scholarship/community-college-guarantee", "MI Student Aid"],
+      ["Who qualifies for Michigan Reconnect?",
+       "Adults 21 and older who have lived in Michigan at least a year, have a high school diploma or GED and don't have an associate or bachelor's degree. The age dropped from 25 to 21 in the 2026-27 state budget, so check before you apply. You also need to file the FAFSA.",
+       "https://www.michigan.gov/reconnect/about", "Michigan Reconnect"],
+      ["How much is the Michigan Achievement Scholarship?",
+       "Up to $5,500 a year for up to five years at a Michigan university, free in-district community college through the Community College Guarantee, or up to $2,000 a year for two years of career training. It's for students who finished high school in 2023 or later and enroll within 15 months.",
+       "https://www.michigan.gov/mistudentaid/programs/michigan-achievement-scholarship", "MI Student Aid"],
+      ["Can I finish high school or get my GED for free in Michigan?",
+       "Yes. Michigan's adult education programs offer free or low-cost high school completion, GED and HiSET prep and English classes. The state's HSE-to-School program can cover one test attempt per subject for eligible residents, depending on funding.",
+       "https://www.michigan.gov/LearnMoreEarnMore", "Michigan LEO"],
+      ["What is Workforce Pell?",
+       "Federal Pell Grants for short job training programs of 8 to 14 weeks in Michigan, available since July 2026. Programs have to be approved first, so ask the training provider whether a program qualifies. Unlike regular Pell, you can use it even if you already have a bachelor's degree.",
+       "https://www.michigan.gov/leo/initiatives/workforce-pell-grants", "Michigan LEO"]
+    ]
+  },
+  "trades/": {
+    "group": "Trades and apprenticeships",
+    "items": [
+      ["How do you become a licensed electrician in Michigan?",
+       "Through a registered apprenticeship. After 8,000 hours over at least four years as a registered apprentice, and at age 20 or older, you can take the journeyman electrician exam from LARA. Register as an apprentice with LARA within 30 days of starting, because hours without a current registration don't count.",
+       "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/electrical-examination-licensing-registration-application-information", "Michigan LARA"],
+      ["How long does it take to become a plumber in Michigan?",
+       "At least three years. A journey plumber license requires 6,000 hours over at least three years, at age 18 or older. A master plumber license takes another 4,000 hours over at least two years as a journey plumber.",
+       "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/plumbing-examination-licensing-registration-application-information", "Michigan LARA"],
+      ["Do apprentices get paid in Michigan?",
+       "Yes, from day one. Apprentices earn wages that rise as their skills grow, and classroom training is usually free. Michigan has more than 24,500 active apprentices, and people who complete an apprenticeship earn a median of almost $90,000 a year later.",
+       "https://www.michigan.gov/leo/employment-and-training/annual-reports/2025-annual-report/wd", "Michigan LEO"],
+      ["Can high school students do an apprenticeship in Michigan?",
+       "Yes, from age 16. A youth registered apprenticeship is a paid job with a training plan registered with the U.S. Department of Labor, and the hours count toward the full apprenticeship after graduation. Some Early Middle Colleges build one in.",
+       "https://www.michigan.gov/mde/-/media/Project/Websites/mde/CTE/cte_at_a_glance/24-EMC-Apprenticeships.pdf", "Michigan Department of Education"]
+    ]
+  },
+  "employers/": {
+    "group": "Employers",
+    "items": [
+      ["How can Michigan employers get paid to train workers?",
+       "Three main ways. On-the-job training through Michigan Works! reimburses part of a qualifying new hire's wages during training, typically up to 50%. The state's Going PRO Talent Fund awards training grants, with the next round in early 2027. And the Michigan New Jobs Training Program lets community colleges train new hires at no upfront cost.",
+       "https://www.ecfr.gov/current/title-20/chapter-V/part-680/subpart-F/section-680.730", "20 CFR 680.730"],
+      ["Do I need a work permit to hire a minor in Michigan?",
+       "Yes. Since Oct. 2, 2026, youth work permits come only from the state's Youth Employment Permit Portal, not from schools, and both the employer and the minor register. Minors already working for you don't need to re-register until they change employers or work locations, or turn 16.",
+       "https://www.michigan.gov/leo/bureaus-agencies/ber/wage-and-hour/youth-employment-standards-act-yesa", "Michigan LEO"]
+    ]
+  },
+  "funding/": {
+    "group": "How the money works",
+    "items": [
+      ["How much does Michigan spend per student?",
+       "$10,300 per student in 2026-27, the base foundation allowance from state and local money combined. Students from low-income families and English learners bring extra on top of that.",
+       "https://www.legislature.mi.gov/Documents/2025-2026/publicact/pdf/2026-PA-0025.pdf", "2026 PA 25"],
+      ["Does CTE bring extra funding to Michigan schools?",
+       "Yes. On top of the $10,300 every student brings, Michigan put about $68 million into funding that only career and technical education can use in 2026-27. Local CTE millages and federal Perkins money add more in many counties. The state money goes to programs based on their costs and job outcomes rather than to each student.",
+       "https://www.legislature.mi.gov/Documents/2025-2026/publicact/pdf/2026-PA-0025.pdf", "2026 PA 25"]
+    ]
+  },
+  "districts/": {
+    "group": "Districts and Early Middle College",
+    "items": [
+      ["What is an ISD in Michigan?",
+       "An intermediate school district: one of 56 county-level agencies that serve local school districts. ISDs usually run the career tech center and often an Early Middle College, so a student's real options depend on their ISD as much as their high school. They're also called RESAs or ESAs.",
+       "https://www.mischooldata.org/cte-programs-offered/", "MI School Data"],
+      ["How do I find CTE programs near me in Michigan?",
+       "Search the state's CTE Programs Offered tool on MI School Data by your ISD's name, then set Program Type to Secondary CTE. It lists every state-approved program and the building it's taught in. Then check the tech center's own site for application windows and transportation.",
+       "https://www.mischooldata.org/cte-programs-offered/", "MI School Data"],
+      ["How does a school district start an Early Middle College?",
+       "It partners with a college, sends a team to two required MDE workshops and applies to the state. For 2026-27 the workshops are Oct. 28 and Dec. 3, 2026, and new applications are due Feb. 5, 2027. A district can also join an ISD consortium instead of building its own, and career-focused programs can get planning grants of up to $50,000 through the ISD.",
+       "https://www.michigan.gov/mde/services/flexible-learning/middle-colleges", "Michigan Department of Education"]
+    ]
+  },
+  "colleges/": {
+    "group": "Community colleges",
+    "items": [
+      ["How many community colleges are in Michigan?",
+       "Michigan has 28 public community colleges and 3 tribal colleges. Michigan Reconnect covers in-district tuition at all 28 public colleges and two of the tribal colleges, and most offer dual enrollment for high school students.",
+       "https://www.michigan.gov/reconnect/faqs", "Michigan Reconnect"],
+      ["Is community college free if I live outside the college's district?",
+       "Not completely. Free tuition through the Community College Guarantee and Michigan Reconnect covers in-district tuition, meaning you live inside the college's taxing district. Out-of-district students usually get a large discount instead.",
+       "https://www.michigan.gov/reconnect/faqs", "Michigan Reconnect"]
+    ]
+  }
+}

@@ -2,6 +2,7 @@
 import os, re, sys, json, shutil
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FAQS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "faqs.json")
 SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pages")
 UPDATED = "October 2026"
 DOMAIN = os.environ.get("MSM_DOMAIN", "michiganskills.com")
@@ -28,12 +29,32 @@ NAV = [
     ("programs/", "All programs"),
     ("newsletter/", "Newsletter"),
     ("partners/", "Partner with us"),
+    ("faq/", "Questions and answers"),
     ("about/", "About"),
 ]
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#0A3A44"/><path d="M5 9h8l6 7h8" fill="none" stroke="#D9561F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 16h22" fill="none" stroke="#5FB3BF" stroke-width="3" stroke-linecap="round"/><path d="M5 23h8l6-7" fill="none" stroke="#E3AE45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="16" r="3.2" fill="#F6F2E9"/></svg>'
 
-def page(slug, title, desc, body, scripts, js=()):
+def faq_html(items, heading="Common questions"):
+    out = [f'<section class="section faq" id="faq"><div class="wrap narrow"><h2>{heading}</h2>']
+    for q, a, url, src in items:
+        out.append(f'<details><summary>{q}</summary><p>{a}</p><p class="sources">Source: <a href="{url}" target="_blank" rel="noopener">{src}</a></p></details>')
+    out.append("</div></section>")
+    return "\n".join(out)
+
+def faq_ld(items):
+    data = {"@context": "https://schema.org", "@type": "FAQPage",
+            "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _, _ in items]}
+    return '<script type="application/ld+json">' + json.dumps(data) + "</script>"
+
+def site_ld():
+    data = [{"@context": "https://schema.org", "@type": "Organization", "name": "Michigan Skills", "url": f"https://{DOMAIN}/",
+             "email": EMAIL, "logo": f"https://{DOMAIN}/favicon.svg", "areaServed": "Michigan",
+             "description": "A free, independent guide to every public path into skilled work in Michigan."},
+            {"@context": "https://schema.org", "@type": "WebSite", "name": "Michigan Skills", "url": f"https://{DOMAIN}/"}]
+    return '<script type="application/ld+json">' + json.dumps(data) + "</script>"
+
+def page(slug, title, desc, body, scripts, js=(), ld=""):
     depth = slug.count("/")
     base = "../" * depth
     nav = "".join(f'<li><a href="{base}{href}">{label}</a></li>' for href, label in NAV)
@@ -61,6 +82,7 @@ def page(slug, title, desc, body, scripts, js=()):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Sans+3:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{base}assets/styles.css">
+{ld}
 </head>
 <body data-base="{base}">
 <a class="skip" href="#main">Skip to content</a>
@@ -101,6 +123,7 @@ def page(slug, title, desc, body, scripts, js=()):
         <li><a href="{base}employers/">Employers &amp; apprenticeship sponsors</a></li>
         <li><a href="{base}educators/">Teachers, counselors &amp; job centers</a></li>
         <li><a href="{base}funding/">How the money works</a></li>
+        <li><a href="{base}faq/">Questions and answers</a></li>
         <li><a href="{base}glossary/">Glossary</a></li>
         <li><a href="{base}partners/">Partner with us</a></li>
         <li><a href="{base}about/">About</a></li>
@@ -116,6 +139,8 @@ def page(slug, title, desc, body, scripts, js=()):
 
 def main():
     urls = []
+    global FAQS
+    FAQS = json.load(open(FAQS_PATH))
     for fn in sorted(os.listdir(SRC)):
         if not fn.endswith(".html"):
             continue
@@ -128,7 +153,19 @@ def main():
         slug = meta["slug"]
         out_dir = os.path.join(SITE, slug)
         os.makedirs(out_dir, exist_ok=True)
-        html = page(slug, meta["title"], meta["desc"], body, meta.get("scripts", []), meta.get("js", []))
+        ld = site_ld() if slug == "" else ""
+        if slug in FAQS:
+            body = body + "\n" + faq_html(FAQS[slug]["items"])
+            ld += faq_ld(FAQS[slug]["items"])
+        if slug == "faq/":
+            hub = []
+            for k, g in FAQS.items():
+                hub.append(f'<section class="section"><div class="wrap narrow"><p class="eyebrow"><a href="../{k}">{g["group"]}</a></p>')
+                hub.append(faq_html(g["items"], g["group"]).replace('<section class="section faq" id="faq"><div class="wrap narrow">', "").replace("</div></section>", ""))
+                hub.append("</div></section>")
+            body = body + "\n".join(hub)
+            # Google wants each FAQ marked up once, so the hub repeats the text but not the structured data
+        html = page(slug, meta["title"], meta["desc"], body, meta.get("scripts", []), meta.get("js", []), ld)
         open(os.path.join(out_dir, "index.html"), "w").write(html)
         print("wrote", slug or "/")
         urls.append(slug)
