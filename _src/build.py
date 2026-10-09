@@ -90,7 +90,9 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://{DOMAIN}/assets/share.png">
 <meta property="og:url" content="https://{DOMAIN}/{slug}">
+<link rel="icon" href="{base}favicon.ico" sizes="any">
 <link rel="icon" href="{base}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{base}favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="{base}apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
