@@ -206,5 +206,96 @@
     "Michigan Reconnect"
    ]
   ]
+ },
+ "dual-enrollment/": {
+  "group": "Dual enrollment",
+  "items": [
+   [
+    "Can a 9th grader dual enroll in Michigan?",
+    "Yes. Michigan students can dual enroll starting in grade 9 with a qualifying score on the PSAT 8/9, PSAT, SAT or ACT. Students who start in grade 9 take up to two college courses a year at first, and up to 10 total during high school.",
+    "https://legislature.mi.gov/Laws/MCL?objectName=mcl-388-513",
+    "MCL 388.513"
+   ],
+   [
+    "What happens if a student fails a dual enrollment class in Michigan?",
+    "The family may have to repay the district for any tuition the college doesn't refund, unless the college finds a family or medical emergency. The district won't pay for a retake of the same failed course.",
+    "https://legislature.mi.gov/Laws/MCL?objectName=mcl-388-514",
+    "MCL 388.514"
+   ],
+   [
+    "Does dual enrollment count for high school credit in Michigan?",
+    "Usually yes. The student, parents and counselor decide whether the course counts toward high school graduation, and it also earns college credit on a college transcript.",
+    "https://www.michigan.gov/mde/services/flexible-learning/dual-enroll",
+    "Michigan Department of Education"
+   ]
+  ]
+ },
+ "community-college-guarantee/": {
+  "group": "Community College Guarantee",
+  "items": [
+   [
+    "Who is eligible for the Michigan Community College Guarantee?",
+    "Michigan residents who finished high school or an equivalency in 2023 or later, file the FAFSA and enroll full time at a community college within 15 months of graduating. There is no income limit.",
+    "https://www.michigan.gov/mistudentaid/programs/michigan-achievement-scholarship/community-college-guarantee",
+    "MI Student Aid"
+   ],
+   [
+    "How long does the Michigan Community College Guarantee last?",
+    "Up to three years of in-district tuition and mandatory fees at a Michigan community or tribal college.",
+    "https://www.michigan.gov/mistudentaid/programs/michigan-achievement-scholarship/community-college-guarantee",
+    "MI Student Aid"
+   ]
+  ]
+ },
+ "michigan-reconnect/": {
+  "group": "Michigan Reconnect",
+  "items": [
+   [
+    "What is the age limit for Michigan Reconnect?",
+    "You must be 21 or older for 2026-27. The age was lowered from 25 to 21 in the state budget, so confirm before you apply in future years.",
+    "https://www.michigan.gov/reconnect/about",
+    "Michigan Reconnect"
+   ],
+   [
+    "Does Michigan Reconnect cover trade programs?",
+    "Yes. Reconnect covers Pell-eligible skill certificates as well as associate degrees, which includes many trades programs like welding, HVAC and electrical technology at Michigan community colleges.",
+    "https://www.michigan.gov/reconnect/about",
+    "Michigan Reconnect"
+   ]
+  ]
+ },
+ "early-middle-college/": {
+  "group": "Early Middle College",
+  "items": [
+   [
+    "Is Early Middle College free in Michigan?",
+    "Tuition is generally covered by the school district, which keeps receiving state funding for the student's fifth year. Fees, books and transportation vary by program.",
+    "https://www.michigan.gov/mde/services/flexible-learning/middle-colleges",
+    "Michigan Department of Education"
+   ],
+   [
+    "When do you apply for Early Middle College in Michigan?",
+    "Students must be officially enrolled by the fall of their junior year, and many programs take applications in grade 10. Some, like whole Early Middle College high schools, start in grade 9.",
+    "https://www.michigan.gov/mde/-/media/Project/Websites/mde/CTE/cte_emc/Pupil-Accounting-Guidance/EMC-Student-Fifth-Year-FAQ-Tip-Sheet.pdf",
+    "Michigan Department of Education"
+   ]
+  ]
+ },
+ "michigan-achievement-scholarship/": {
+  "group": "Michigan Achievement Scholarship",
+  "items": [
+   [
+    "How much is the Michigan Achievement Scholarship for a university?",
+    "Up to $5,500 a year for up to five years at a Michigan public or private university, for students whose family Student Aid Index is 30,000 or less.",
+    "https://www.michigan.gov/mistudentaid/programs/michigan-achievement-scholarship/college-and-university",
+    "MI Student Aid"
+   ],
+   [
+    "Do you have to graduate from a Michigan high school for the Michigan Achievement Scholarship?",
+    "Not anymore. Starting in 2026-27 you need to be a Michigan resident, but you no longer have to have graduated from a Michigan high school.",
+    "https://content.govdelivery.com/accounts/MILEAP/bulletins/4216740",
+    "MiLEAP FY2027 budget bulletin"
+   ]
+  ]
  }
 }

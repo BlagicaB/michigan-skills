@@ -343,3 +343,8 @@ details summary .faq-q { display: inline; font-size: 1.02rem; margin: 0; }
 .faq-item:first-of-type { border-top: 0; }
 .faq-item .faq-q { font-size: 1.12rem; margin: 0 0 .4rem; }
 .faq-item p { margin-bottom: .4rem; }
+
+/* Topic guides: the answer-first lede */
+.answer { font-size: 1.2rem; line-height: 1.55; max-width: 46rem; color: var(--ink); border-left: 5px solid var(--orange); padding-left: 1rem; }
+.answer strong { color: var(--ink); }
+table th[scope], .table-wrap tbody th { white-space: normal; width: 34%; }
