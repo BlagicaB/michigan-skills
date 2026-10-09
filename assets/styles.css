@@ -197,7 +197,13 @@ tr:last-child td { border-bottom: 0; }
 
 /* Transit map */
 .map-wrap { background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow); overflow-x: auto; }
-.map-wrap svg { min-width: 760px; width: 100%; height: auto; }
+.map-wrap svg { width: 100%; height: auto; display: block; }
+/* Narrow screens: the map scales to fit; small station labels would be unreadable, so they hide
+   and the legend plus the list of reachable stops below the map carry the detail. */
+@media (max-width: 759px) {
+  #transit .lbl, #transit .sub, #transit .col, #transit .term { display: none; }
+  .map-wrap { overflow: hidden; padding: .6rem; }
+}
 .map-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-top: .8rem; font-size: .92rem; }
 .map-legend span { display: inline-flex; align-items: center; gap: .45rem; }
 .map-legend i { width: 22px; height: 5px; border-radius: 3px; display: inline-block; }

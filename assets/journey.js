@@ -185,7 +185,7 @@
     svg.classList.add("focus");
     svg.querySelectorAll(".ln").forEach(function (l) { l.classList.toggle("on", s.lines.indexOf(l.getAttribute("data-line")) > -1); });
     svg.querySelectorAll(".stop").forEach(function (g) { g.classList.toggle("on", s.stops.indexOf(g.getAttribute("data-stop")) > -1); });
-    if (s.pin) { pin.setAttribute("transform", "translate(" + s.pin[0] + " " + s.pin[1] + ")"); pin.style.opacity = 1; }
+    if (s.pin) { var k = svg.getBoundingClientRect().width < 600 ? 2.2 : 1; pin.setAttribute("transform", "translate(" + s.pin[0] + " " + s.pin[1] + ") scale(" + k + ")"); pin.style.opacity = 1; }
     else pin.style.opacity = 0;
     // On narrow screens the map scrolls sideways: bring the pin into view.
     var wrap = svg.parentNode;
