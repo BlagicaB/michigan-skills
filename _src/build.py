@@ -38,7 +38,7 @@ LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32"
 def faq_html(items, heading="Common questions"):
     out = [f'<section class="section faq" id="faq"><div class="wrap narrow"><h2>{heading}</h2>']
     for q, a, url, src in items:
-        out.append(f'<details><summary>{q}</summary><p>{a}</p><p class="sources">Source: <a href="{url}" target="_blank" rel="noopener">{src}</a></p></details>')
+        out.append(f'<details><summary><h3 class="faq-q">{q}</h3></summary><p>{a}</p><p class="sources">Source: <a href="{url}" target="_blank" rel="noopener">{src}</a></p></details>')
     out.append("</div></section>")
     return "\n".join(out)
 
@@ -63,7 +63,7 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
     data = "".join(f'<script src="{base}assets/data/{s}.js"></script>' for s in scripts)
     data += f'<script src="{base}assets/data/sponsors.js"></script><script src="{base}assets/data/demo-sponsors.js"></script>' if "sponsors" not in scripts else f'<script src="{base}assets/data/demo-sponsors.js"></script>'
     extra = "".join(f'<script src="{base}assets/{s}.js"></script>' for s in js)
-    full_title = "Michigan Skills" if not slug else f"{title} | Michigan Skills"
+    full_title = "Michigan Skills: Free Training, College Credit and Trades" if not slug else f"{title} | Michigan Skills"
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -76,6 +76,11 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Michigan Skills">
+<meta property="og:image" content="https://{DOMAIN}/assets/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://{DOMAIN}/assets/share.png">
 <meta property="og:url" content="https://{DOMAIN}/{slug}">
 <link rel="icon" href="{base}favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,7 +113,7 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
       <button class="theme-toggle" type="button">Light / dark</button>
     </div>
     <div>
-      <h4>Find your path</h4>
+      <h2 class="foot-h">Find your path</h2>
       <ul>
         <li><a href="{base}students/">Students &amp; parents</a></li>
         <li><a href="{base}adults/">Adults &amp; recent grads</a></li>
@@ -118,7 +123,7 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
       </ul>
     </div>
     <div>
-      <h4>For the people who help</h4>
+      <h2 class="foot-h">For the people who help</h2>
       <ul>
         <li><a href="{base}employers/">Employers &amp; apprenticeship sponsors</a></li>
         <li><a href="{base}educators/">Teachers, counselors &amp; job centers</a></li>
@@ -154,17 +159,22 @@ def main():
         out_dir = os.path.join(SITE, slug)
         os.makedirs(out_dir, exist_ok=True)
         ld = site_ld() if slug == "" else ""
+        if slug == "" and "home" in FAQS:
+            body = body.replace("<!--HOME_FAQ-->", faq_html(FAQS["home"]["items"], "Quick answers"))
+            ld += faq_ld(FAQS["home"]["items"])
         if slug in FAQS:
             body = body + "\n" + faq_html(FAQS[slug]["items"])
             ld += faq_ld(FAQS[slug]["items"])
         if slug == "faq/":
             hub = []
             for k, g in FAQS.items():
+                if k == "home":
+                    continue
                 hub.append(f'<section class="section"><div class="wrap narrow"><p class="eyebrow"><a href="../{k}">{g["group"]}</a></p>')
                 hub.append(faq_html(g["items"], g["group"]).replace('<section class="section faq" id="faq"><div class="wrap narrow">', "").replace("</div></section>", ""))
                 hub.append("</div></section>")
             body = body + "\n".join(hub)
-            # Google wants each FAQ marked up once, so the hub repeats the text but not the structured data
+            ld += faq_ld([i for k, g in FAQS.items() if k != "home" for i in g["items"]])
         html = page(slug, meta["title"], meta["desc"], body, meta.get("scripts", []), meta.get("js", []), ld)
         open(os.path.join(out_dir, "index.html"), "w").write(html)
         print("wrote", slug or "/")

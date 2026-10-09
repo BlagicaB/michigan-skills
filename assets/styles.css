@@ -335,3 +335,7 @@ code { font-size: .9em; background: var(--card); padding: .1em .35em; border-rad
 .stat-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--rule); }
 .stat-dots i.on { background: var(--orange); }
 @media (prefers-reduced-motion: reduce) { .stat-card.in .stat-body { animation: none; } }
+
+/* Footer headings (real h2s for a clean outline, styled small) and FAQ questions */
+.foot-h { font-size: 1rem; margin: 0 0 .6rem; }
+details summary .faq-q { display: inline; font-size: 1.02rem; margin: 0; }
