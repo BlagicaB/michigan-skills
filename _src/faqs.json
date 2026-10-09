@@ -297,5 +297,56 @@
     "MiLEAP FY2027 budget bulletin"
    ]
   ]
+ },
+ "promise-zones/": {
+  "group": "Promise Zones",
+  "items": [
+   [
+    "How many Promise Zones are in Michigan?",
+    "Fourteen. The Michigan Department of Treasury has certified Baldwin, Battle Creek, Benton Harbor, Detroit, the Eastern Upper Peninsula ISD, Flint, Grand Rapids, Hazel Park, Lansing, Mason County, Muskegon Area ISD, Newaygo County, Pontiac and Saginaw.",
+    "https://www.michigan.gov/treasury/finance/info/promise/michigan-promise-zone-designations",
+    "Michigan Treasury"
+   ],
+   [
+    "What does a Michigan Promise Zone scholarship cover?",
+    "At minimum, tuition and required fees for an associate degree at a Michigan community college for students who live in the zone and graduate from a high school there. Many zones pay more, including toward a bachelor's degree or a trade program, and each sets its own rules.",
+    "https://legislature.mi.gov/Laws/MCL?objectName=mcl-390-1667",
+    "MCL 390.1667"
+   ]
+  ]
+ },
+ "kalamazoo-promise/": {
+  "group": "Kalamazoo Promise",
+  "items": [
+   [
+    "Who is eligible for the Kalamazoo Promise?",
+    "Kalamazoo Public Schools graduates who lived in the district and attended KPS continuously for at least grades 9-12. Charter school time doesn't count, and Schools of Choice students from other districts aren't eligible.",
+    "https://www.kalamazoopromise.com/eligibility",
+    "Kalamazoo Promise"
+   ],
+   [
+    "Does the Kalamazoo Promise pay 100% at community college?",
+    "Yes. Since April 2026, every eligible scholar gets up to 100% of in-state tuition and mandatory fees at participating community colleges, regardless of how many years they attended KPS.",
+    "https://www.kalamazoopromise.com/blog/kalamazoo-promise-announces-enhanced-community-college-opportunity",
+    "Kalamazoo Promise"
+   ]
+  ]
+ },
+ "detroit-promise/": {
+  "group": "Detroit Promise",
+  "items": [
+   [
+    "Who qualifies for the Detroit Promise?",
+    "Detroit residents who graduate from a Detroit high school. For community college, students need junior and senior years at Detroit high schools and no GPA or test score. For the university path, they need all four years and a minimum GPA, usually 3.0.",
+    "https://detroitpromise.com/do-i-qualify/",
+    "Detroit Promise"
+   ],
+   [
+    "Is the Detroit Promise application open?",
+    "The application closed July 1, 2026 and reopens in November 2026 for the next graduating class. Check the official Detroit Promise site for dates.",
+    "https://detroitpromise.com/",
+    "Detroit Promise"
+   ]
+  ]
  }
 }

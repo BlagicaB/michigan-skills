@@ -32,6 +32,9 @@ NAV = [
     ("community-college-guarantee/", "Guide: Community College Guarantee"),
     ("michigan-reconnect/", "Guide: Michigan Reconnect"),
     ("michigan-achievement-scholarship/", "Guide: Achievement Scholarship"),
+    ("promise-zones/", "Guide: Promise Zones"),
+    ("kalamazoo-promise/", "Guide: Kalamazoo Promise"),
+    ("detroit-promise/", "Guide: Detroit Promise"),
     ("newsletter/", "Newsletter"),
     ("partners/", "Partner with us"),
     ("faq/", "Questions and answers"),
@@ -130,6 +133,7 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
         <li><a href="{base}community-college-guarantee/">Community College Guarantee</a></li>
         <li><a href="{base}michigan-reconnect/">Michigan Reconnect</a></li>
         <li><a href="{base}michigan-achievement-scholarship/">Achievement Scholarship</a></li>
+        <li><a href="{base}promise-zones/">Promise Zones</a></li>
         <li><a href="{base}programs/">All programs</a></li>
       </ul>
     </div>
