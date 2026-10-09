@@ -21,7 +21,9 @@ AUDIENCE = [
 NAV = [
     ("", "Start: You are here"),
     ("students/", "Students and parents"),
+    ("make-money-at-16/", "Teens: get paid at 16"),
     ("adults/", "Adults and recent grads"),
+    ("switch-to-a-trade/", "Switch to a trade while working"),
     ("trades/", "Trades and unions"),
     ("colleges/", "Community colleges"),
     ("employers/", "Employers"),
@@ -134,7 +136,9 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
       <h2 class="foot-h">Find your path</h2>
       <ul>
         <li><a href="{base}students/">Students &amp; parents</a></li>
+        <li><a href="{base}make-money-at-16/">Teens: get paid at 16</a></li>
         <li><a href="{base}adults/">Adults &amp; recent grads</a></li>
+        <li><a href="{base}switch-to-a-trade/">Switch to a trade</a></li>
         <li><a href="{base}trades/">Trades &amp; unions</a></li>
         <li><a href="{base}colleges/">Community colleges</a></li>
         <li><a href="{base}dual-enrollment/">Dual enrollment</a></li>

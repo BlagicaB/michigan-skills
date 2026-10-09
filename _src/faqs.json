@@ -535,5 +535,39 @@
     "Mid Michigan College"
    ]
   ]
+ },
+ "switch-to-a-trade/": {
+  "group": "Switching to a trade",
+  "items": [
+   [
+    "How much do first-year apprentices make in Michigan?",
+    "It depends on the trade and area. Published examples: about $16 to $19 an hour for Lansing electrical apprentices and about $25.73 an hour for metro Detroit construction laborers, plus health care and retirement. Pay rises every 6 months or year.",
+    "https://www.lejatc.org/apply",
+    "Lansing Electrical JATC"
+   ],
+   [
+    "Can I get help with child care while I train for a trade in Michigan?",
+    "Yes, if you qualify. Michigan's Child Development and Care program counts trade training as an approved activity, and Michigan Works! agencies can help with some costs.",
+    "https://www.michigan.gov/mileap/early-childhood-education/early-learners-and-care/cdc/parents",
+    "MiLEAP"
+   ]
+  ]
+ },
+ "make-money-at-16/": {
+  "group": "Working at 16 in Michigan",
+  "items": [
+   [
+    "How many hours can a 16 year old work in Michigan during school?",
+    "Up to 24 hours a week while school is in session, no more than 10 hours in a day and not between 10:30 p.m. and 6 a.m. (11:30 p.m. on Fridays, Saturdays and vacations).",
+    "https://www.legislature.mi.gov/Laws/MCL?objectName=MCL-409-111",
+    "MCL 409.111"
+   ],
+   [
+    "How do teens get a work permit in Michigan now?",
+    "Since Oct. 2, 2026, permits are online. The employer registers with the state's Youth Employment Permit Portal and the teen completes the permit through MiLogin. Schools no longer issue permits.",
+    "https://www.michigan.gov/leo/news/2026/10/01/new-youth-employment-permit-portal-helps-protect-michigan-young-workers",
+    "Michigan LEO"
+   ]
+  ]
  }
 }
