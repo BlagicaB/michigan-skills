@@ -29,6 +29,7 @@ NAV = [
     ("funding/", "The money"),
     ("districts/", "Find your district"),
     ("programs/", "All programs"),
+    ("careers/", "Career guides: pay and training"),
     ("dual-enrollment/", "Guide: Dual enrollment"),
     ("early-middle-college/", "Guide: Early Middle College"),
     ("community-college-guarantee/", "Guide: Community College Guarantee"),
@@ -142,6 +143,7 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
         <li><a href="{base}michigan-reconnect/">Michigan Reconnect</a></li>
         <li><a href="{base}michigan-achievement-scholarship/">Achievement Scholarship</a></li>
         <li><a href="{base}promise-zones/">Promise Zones</a></li>
+        <li><a href="{base}careers/">Career guides</a></li>
         <li><a href="{base}programs/">All programs</a></li>
       </ul>
     </div>

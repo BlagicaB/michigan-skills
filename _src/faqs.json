@@ -416,5 +416,124 @@
     "Michigan Department of Education"
    ]
   ]
+ },
+ "careers/electrician/": {
+  "group": "How to become an electrician in Michigan",
+  "items": [
+   [
+    "How long does it take to become an electrician in Michigan?",
+    "At least 4 years. A journeyman license needs 8,000 hours and 4 years as a registered apprentice, plus passing the state exam at age 20 or older.",
+    "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/electrical-examination-licensing-registration-application-information",
+    "LARA"
+   ],
+   [
+    "How much do electricians make in Michigan?",
+    "The median is $36.67 an hour, about $76,270 a year. Most earn between $24 and $44 an hour.",
+    "https://data.bls.gov/oes/#/area/2600000",
+    "BLS, May 2025"
+   ]
+  ]
+ },
+ "careers/plumber/": {
+  "group": "How to become a plumber in Michigan",
+  "items": [
+   [
+    "How long does it take to become a plumber in Michigan?",
+    "At least 3 years. A journey plumber license needs 6,000 hours over 3 years as a registered apprentice and passing written and practical exams. Union programs usually take 5 years.",
+    "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/plumbing-examination-licensing-registration-application-information",
+    "LARA"
+   ],
+   [
+    "How much do plumbers make in Michigan?",
+    "The median is $38.56 an hour, about $80,190 a year. Most earn between $28 and $46 an hour.",
+    "https://data.bls.gov/oes/#/area/2600000",
+    "BLS, May 2025"
+   ]
+  ]
+ },
+ "careers/hvac-technician/": {
+  "group": "How to become an HVAC technician in Michigan",
+  "items": [
+   [
+    "Do you need a license to be an HVAC technician in Michigan?",
+    "Not an individual one. Michigan licenses mechanical contractors, and technicians work under them. To handle refrigerant you need federal EPA Section 608 certification.",
+    "https://www.epa.gov/section608/section-608-technician-certification-0",
+    "U.S. EPA"
+   ],
+   [
+    "How much do HVAC technicians make in Michigan?",
+    "The median is $29.26 an hour, about $60,850 a year. Most earn between $23 and $37 an hour.",
+    "https://data.bls.gov/oes/#/area/2600000",
+    "BLS, May 2025"
+   ]
+  ]
+ },
+ "careers/cna/": {
+  "group": "How to become a CNA in Michigan",
+  "items": [
+   [
+    "How long does it take to become a CNA in Michigan?",
+    "The required training is 75 hours, often finished in a few weeks, followed by the state competency exam and listing on the Nurse Aide Registry.",
+    "https://www.michigan.gov/lara/bureau-list/bchs/nurse-aide-registry",
+    "LARA"
+   ],
+   [
+    "Can I get CNA training for free in Michigan?",
+    "Often, yes. A Medicaid-certified nursing facility must reimburse your training and testing costs if it hires you within 12 months of testing, and some nursing homes train new hires for free.",
+    "https://www.michigan.gov/-/media/Project/Websites/mdhhs/Folder2/Folder53/Folder1/Folder153/NATCEP-FAQ.pdf?rev=cd7e6713742a47699f9bf72c5fed546e",
+    "MDHHS"
+   ]
+  ]
+ },
+ "careers/welder/": {
+  "group": "How to become a welder in Michigan",
+  "items": [
+   [
+    "Do you need a license to weld in Michigan?",
+    "No. Michigan has no state welding license. Employers look for code certifications, such as AWS Certified Welder, earned by passing a hands-on test.",
+    "https://www.aws.org/certification-and-education/professional-certification/certified-welder-program/",
+    "American Welding Society"
+   ],
+   [
+    "Is welding a growing job in Michigan?",
+    "Not in total numbers. Michigan projects welding jobs to shrink 2.4% through 2034, but there are still about 1,320 openings a year as welders retire or change jobs.",
+    "https://www.michigan.gov/mcda/labor-market-information/employment-projections",
+    "MCDA"
+   ]
+  ]
+ },
+ "careers/lineworker/": {
+  "group": "How to become a lineworker in Michigan",
+  "items": [
+   [
+    "How much do lineworkers make in Michigan?",
+    "The median is $51.39 an hour, about $106,890 a year. Most earn between $41 and $60 an hour.",
+    "https://data.bls.gov/oes/#/area/2600000",
+    "BLS, May 2025"
+   ],
+   [
+    "How do you become a lineworker in Michigan?",
+    "Most people finish a one-year community college lineworker program or get into the ALBAT apprenticeship, earn a CDL, then work 3 to 4 years to reach journeyman.",
+    "https://www.albat.org",
+    "ALBAT"
+   ]
+  ]
+ },
+ "careers/truck-driver/": {
+  "group": "How to get a CDL and become a truck driver in Michigan",
+  "items": [
+   [
+    "How old do you have to be to get a CDL in Michigan?",
+    "18 to drive a commercial vehicle within Michigan. You must be 21 to drive across state lines or haul placarded hazardous materials.",
+    "https://www.michigan.gov/sos/all-services/cdl-apply",
+    "Michigan Secretary of State"
+   ],
+   [
+    "How much does CDL training cost in Michigan?",
+    "Community college Class A programs run about $5,200 for roughly 3 weeks. Michigan Works! may cover the cost if you qualify, and some employers train new hires.",
+    "https://midmich.edu/degrees-programs/short-term-training/cdl",
+    "Mid Michigan College"
+   ]
+  ]
  }
 }
