@@ -39,7 +39,7 @@
    ],
    [
     "What grade can a student start dual enrollment in Michigan?",
-    "Grade 9. With a qualifying PSAT, SAT or ACT score, a student can take college classes the district pays for, up to 10 courses during high school. Students who start in grade 9 take two a year at first, and juniors and seniors can take up to six a year.",
+    "Grade 9. With a qualifying PSAT, SAT or ACT score, a student can take college classes the district pays for, up to 10 courses during high school. Students who start in grade 9 take two a year at first, and students who start in grade 11 or 12 can take up to six a year. A district and college agreement can raise these limits.",
     "https://legislature.mi.gov/Laws/MCL?objectName=mcl-388-513",
     "MCL 388.513"
    ],
@@ -346,6 +346,74 @@
     "The application closed July 1, 2026 and reopens in November 2026 for the next graduating class. Check the official Detroit Promise site for dates.",
     "https://detroitpromise.com/",
     "Detroit Promise"
+   ]
+  ]
+ },
+ "michigan-works/": {
+  "group": "Michigan Works!",
+  "items": [
+   [
+    "Is Michigan Works! only for people on unemployment?",
+    "No. Career help, job search support and hiring events are free for anyone. Paid training through WIOA is for people who qualify, with priority for veterans, people with low incomes, people on public assistance and laid-off workers.",
+    "https://www.michiganworks.org/",
+    "Michigan Works! Association"
+   ],
+   [
+    "How many Michigan Works! offices are there?",
+    "Sixteen regional Michigan Works! agencies run more than 90 service centers across the state. Call 1-800-285-9675 to find yours.",
+    "https://www.michiganworks.org/",
+    "Michigan Works! Association"
+   ]
+  ]
+ },
+ "workforce-pell/": {
+  "group": "Workforce Pell",
+  "items": [
+   [
+    "Can Pell Grants pay for short training programs in Michigan?",
+    "Yes, starting July 2026. Workforce Pell covers approved programs of 150 to 599 clock hours, and Michigan requires them to run 8 to 14 weeks. The program must be approved by the state, so ask the provider.",
+    "https://www.michigan.gov/leo/initiatives/workforce-pell-grants",
+    "Michigan LEO"
+   ],
+   [
+    "Can I use Workforce Pell if I already have a bachelor's degree?",
+    "Yes. Unlike regular Pell, Workforce Pell can be used by students who already have a bachelor's degree, but not by those with a graduate degree.",
+    "https://www.ed.gov/about/news/press-release/us-department-of-education-issues-final-rule-create-new-workforce-pell-grant-program",
+    "U.S. Department of Education"
+   ]
+  ]
+ },
+ "going-pro/": {
+  "group": "Going PRO Talent Fund",
+  "items": [
+   [
+    "When is the next Going PRO Talent Fund round?",
+    "Early 2027. Employers apply through their local Michigan Works! agency, so contact your agency's business services team ahead of time.",
+    "https://www.michigan.gov/talentfund",
+    "Michigan LEO"
+   ],
+   [
+    "How much is a Going PRO grant?",
+    "Awards have averaged about $41,000 since 2014, or about $1,600 per trainee. The fund is $14.5 million for 2026-27.",
+    "https://www.michigan.gov/talentfund",
+    "Michigan LEO"
+   ]
+  ]
+ },
+ "cte/": {
+  "group": "CTE in Michigan",
+  "items": [
+   [
+    "What is CTE in Michigan?",
+    "Career and technical education: state-approved, hands-on programs that teach a career, combining classroom work, labs, work-based learning and a student leadership group. Many lead to industry certifications or college credit.",
+    "https://www.michigan.gov/mde/services/octe",
+    "Michigan Department of Education"
+   ],
+   [
+    "Can CTE students still go to college?",
+    "Yes. CTE students meet every Michigan Merit Curriculum requirement, and approved CTE can count toward Algebra II, a world language credit and the third science credit. Many CTE programs also earn college credit.",
+    "https://www.michigan.gov/mde/-/media/Project/Websites/mde/Year/2020/12/10/CTE_MMC_Exchange_Credits_20200923.pdf",
+    "Michigan Department of Education"
    ]
   ]
  }
