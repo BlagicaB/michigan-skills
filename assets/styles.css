@@ -339,3 +339,7 @@ code { font-size: .9em; background: var(--card); padding: .1em .35em; border-rad
 /* Footer headings (real h2s for a clean outline, styled small) and FAQ questions */
 .foot-h { font-size: 1rem; margin: 0 0 .6rem; }
 details summary .faq-q { display: inline; font-size: 1.02rem; margin: 0; }
+.faq-item { border-top: 1px solid var(--rule); padding: 1.1rem 0 .4rem; }
+.faq-item:first-of-type { border-top: 0; }
+.faq-item .faq-q { font-size: 1.12rem; margin: 0 0 .4rem; }
+.faq-item p { margin-bottom: .4rem; }

@@ -38,7 +38,7 @@ LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32"
 def faq_html(items, heading="Common questions"):
     out = [f'<section class="section faq" id="faq"><div class="wrap narrow"><h2>{heading}</h2>']
     for q, a, url, src in items:
-        out.append(f'<details><summary><h3 class="faq-q">{q}</h3></summary><p>{a}</p><p class="sources">Source: <a href="{url}" target="_blank" rel="noopener">{src}</a></p></details>')
+        out.append(f'<div class="faq-item"><h3 class="faq-q">{q}</h3>\n<p>{a}</p>\n<p class="sources">Source: <a href="{url}" target="_blank" rel="noopener">{src}</a></p></div>')
     out.append("</div></section>")
     return "\n".join(out)
 
