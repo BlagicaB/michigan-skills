@@ -1,0 +1,11 @@
+/* Rotating hero stats. Every number must link to its primary source. Checked October 2026. */
+window.STATS = [
+  { big: "55", unit: "per 100", text: "For every 100 skilled trades workers the country needs, training programs produce just 55.", src: "Alliance for America's Skilled Trades, Sept. 2026", url: "https://www.fromtheroad.ford.com/us/en/articles/2026/alliance-for-americas-skilled-trades-expands-national-report" },
+  { big: "24,500+", unit: "", text: "Michiganders are registered apprentices right now, an all-time high. You get paid while you learn.", src: "LEO 2025 Annual Report", url: "https://www.michigan.gov/leo/employment-and-training/annual-reports/2025-annual-report/wd" },
+  { big: "~$90,000", unit: "", text: "is the median pay one year after finishing a registered apprenticeship in Michigan.", src: "LEO 2025 Annual Report", url: "https://www.michigan.gov/leo/employment-and-training/annual-reports/2025-annual-report/wd" },
+  { big: "2", unit: "per semester", text: "free online courses every Michigan student in grades 6-12 can take, paid for by the district.", src: "MCL 388.1621f", url: "https://legislature.mi.gov/Laws/MCL?objectName=mcl-388-1621f" },
+  { big: "~190", unit: "", text: "Early Middle Colleges in Michigan, where a free 13th year of high school ends in an associate degree.", src: "Michigan Department of Education, 2026-27", url: "https://www.michigan.gov/mde/-/media/Project/Websites/mde/CTE/cte_emc/Publications/EMCs-by-Entity-Type.pdf" },
+  { big: "$0", unit: "tuition", text: "at your local community college for 2023-and-later graduates and, this year, adults 21 and older without a degree.", src: "MI Student Aid and Michigan Reconnect", url: "https://www.michigan.gov/reconnect" },
+  { big: "2,450", unit: "a year", text: "electrician job openings expected in Michigan, paying $24 to $44 an hour.", src: "Michigan Hot 50, 2026", url: "https://www.michigan.gov/mcda/reports/michigan-hot-50" },
+  { big: "$68M", unit: "and up", text: "in state funding goes only to career and technical education in 2026-27, on top of the $10,300 every student brings.", src: "2026 PA 25 (State School Aid Act)", url: "https://www.legislature.mi.gov/Documents/2025-2026/publicact/pdf/2026-PA-0025.pdf" }
+];

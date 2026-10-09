@@ -158,6 +158,34 @@
     el.hidden = false;
   });
 
+  // Rotating stats (home hero). Pauses on hover or focus, and never auto-rotates for reduced-motion users.
+  var sc = document.getElementById("stat-card");
+  if (sc && window.STATS && window.STATS.length) {
+    var ST = window.STATS, si = 0, timer = null, paused = false;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var dots = document.getElementById("stat-dots");
+    dots.innerHTML = ST.map(function () { return "<i></i>"; }).join("");
+    var show = function (i) {
+      si = (i + ST.length) % ST.length; var x = ST[si];
+      sc.classList.remove("in"); void sc.offsetWidth; sc.classList.add("in");
+      document.getElementById("stat-big").textContent = x.big;
+      document.getElementById("stat-unit").textContent = x.unit;
+      document.getElementById("stat-text").textContent = x.text;
+      var a = document.getElementById("stat-src"); a.textContent = x.src; a.href = x.url;
+      [].forEach.call(dots.children, function (d, k) { d.className = k === si ? "on" : ""; });
+    };
+    var start = function () { if (!reduce && !paused && !timer) timer = setInterval(function () { show(si + 1); }, 6000); };
+    var stop = function () { clearInterval(timer); timer = null; };
+    document.getElementById("stat-next").addEventListener("click", function () { show(si + 1); });
+    document.getElementById("stat-prev").addEventListener("click", function () { show(si - 1); });
+    var pb = document.getElementById("stat-pause");
+    pb.addEventListener("click", function () { paused = !paused; pb.textContent = paused ? "Play" : "Pause"; pb.setAttribute("aria-pressed", paused ? "true" : "false"); paused ? stop() : start(); });
+    if (reduce) { paused = true; pb.hidden = true; }
+    sc.addEventListener("mouseenter", stop); sc.addEventListener("mouseleave", start);
+    sc.addEventListener("focusin", stop); sc.addEventListener("focusout", start);
+    sc.hidden = false; show(0); start();
+  }
+
   // Community colleges: table on the districts page, cards on the colleges page
   var CC = window.COLLEGES || [];
   var cr = document.getElementById("college-rows");

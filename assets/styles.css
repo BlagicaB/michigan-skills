@@ -317,3 +317,21 @@ code { font-size: .9em; background: var(--card); padding: .1em .35em; border-rad
   .who-bar a { font-size: .86rem; }
   .who-label { font-size: .66rem; letter-spacing: .1em; }
 }
+
+/* Rotating stat card (home hero) */
+.stat-card { margin: 1.8rem 0 0; max-width: 44rem; background: var(--card); border: 1px solid var(--rule); border-left: 6px solid var(--orange); border-radius: var(--radius); padding: 1.1rem 1.3rem .9rem; box-shadow: var(--shadow); }
+.stat-card.in .stat-body { animation: statIn .45s ease; }
+@keyframes statIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.stat-big { font: 800 clamp(2.2rem, 6vw, 3.2rem)/1 var(--head); font-stretch: 112%; color: var(--lake); margin: 0 0 .35rem; font-variant-numeric: tabular-nums; }
+.stat-big small { font: 700 1rem var(--text); color: var(--muted); letter-spacing: .02em; }
+.stat-text { font-size: 1.08rem; color: var(--ink); margin: 0 0 .5rem; min-height: 3.2em; }
+.stat-src { font-size: .82rem; color: var(--muted); }
+.stat-src a { color: var(--muted); }
+.stat-controls { display: flex; align-items: center; gap: .5rem; margin-top: .8rem; }
+.stat-btn { background: none; border: 1px solid var(--rule); color: var(--ink); font: 700 1rem var(--text); min-width: 2.2rem; height: 2.2rem; border-radius: 3px; cursor: pointer; }
+.stat-btn:hover { border-color: var(--lake); }
+.stat-pause { font-size: .82rem; padding: 0 .7rem; margin-left: auto; }
+.stat-dots { display: flex; gap: .35rem; }
+.stat-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--rule); }
+.stat-dots i.on { background: var(--orange); }
+@media (prefers-reduced-motion: reduce) { .stat-card.in .stat-body { animation: none; } }

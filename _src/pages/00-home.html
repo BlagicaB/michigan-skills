@@ -1,5 +1,5 @@
 <!--meta
-{"slug": "", "title": "Michigan Skills", "desc": "Every public path into skilled work in Michigan in one place: dual enrollment, Early Middle College, free virtual courses, CTE, apprenticeships, unions, Michigan Reconnect and how employers get paid to train.", "scripts": ["programs", "isds", "explore", "sponsors"], "js": ["journey"]}
+{"slug": "", "title": "Michigan Skills", "desc": "Every public path into skilled work in Michigan in one place: dual enrollment, Early Middle College, free virtual courses, CTE, apprenticeships, unions, Michigan Reconnect and how employers get paid to train.", "scripts": ["programs", "isds", "explore", "sponsors", "stats"], "js": ["journey"]}
 -->
 <section class="hero">
   <div class="wrap">
@@ -7,6 +7,19 @@
     <h1>Michigan has <em>so many resources.</em> We put them all in one place.</h1>
     <p class="lede">Free college classes in high school. A free 13th year. Free community college. Apprenticeships that pay you from day one. Money for employers who train. It all exists in this state, but it's spread across dozens of agencies, 56 school districts, 31 colleges and hundreds of training programs, so it's hard to find. We gathered it here, in one fell swoop, in plain English.</p>
     <p><a class="btn" href="#here">Show me where I am on the map</a> <a class="btn ghost" href="newsletter/">Get the newsletter</a></p>
+    <figure class="stat-card" id="stat-card" aria-roledescription="carousel" aria-label="Michigan by the numbers" hidden>
+      <div class="stat-body" aria-live="off">
+        <p class="stat-big"><span id="stat-big"></span> <small id="stat-unit"></small></p>
+        <p class="stat-text" id="stat-text"></p>
+        <figcaption class="stat-src">Source: <a id="stat-src" href="#" target="_blank" rel="noopener"></a></figcaption>
+      </div>
+      <div class="stat-controls">
+        <button type="button" class="stat-btn" id="stat-prev" aria-label="Previous stat">&#8249;</button>
+        <span class="stat-dots" id="stat-dots" aria-hidden="true"></span>
+        <button type="button" class="stat-btn" id="stat-next" aria-label="Next stat">&#8250;</button>
+        <button type="button" class="stat-btn stat-pause" id="stat-pause" aria-pressed="false">Pause</button>
+      </div>
+    </figure>
     <div class="toc" aria-label="Jump to">
       <a href="#here">Find where you are</a>
       <a href="#who">Guides by reader</a>
