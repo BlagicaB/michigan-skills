@@ -16,7 +16,7 @@
   var STAGES = {
     ms: { label: "Middle school", pin: [100, 70], lines: ["school", "credit", "trades"],
       stops: ["explore", "ap", "dual", "cte", "emc", "grad", "uni", "ccg", "youth", "app"],
-      money: "Starting now: up to <strong>two free online courses every semester</strong> (the district pays up to about $687 each). From grade 9: up to <strong>10 free college courses</strong>, at least $837.50 each, so about $8,375 in college credit before graduation.",
+      money: "Starting now: up to <strong>two free online courses every term</strong> (the district pays up to about $687 each). From grade 9: up to <strong>10 free college courses</strong>, at least $837.50 each, so about $8,375 in college credit before graduation.",
       goals: [["explore", "Figure out what fits"], ["credit", "Get ahead on college"], ["trade", "Hands-on skills"]] },
     hs: { label: "High school", pin: [300, 150], lines: ["school", "credit", "trades"],
       stops: ["ap", "dual", "cte", "emc", "youth", "grad", "uni", "ccg", "app"],
@@ -112,12 +112,12 @@
   // Grade-by-grade checklists for students and parents. {you}/{your}/{You}/{Your} become
   // "your child"/"your child's" for parents and "you"/"your" for students.
   var GRADE_STEPS = {
-    6: ["Free virtual courses start now: {you} can take up to two online classes each semester, paid for by the district. Ask the counselor the term before.",
+    6: ["Free virtual courses start now: {you} can take up to two online classes each term (semester or trimester), paid for by the district. Ask the counselor the term before.",
         "{Your} Educational Development Plan (EDP) starts in grade 7. Ask which tool the school uses so it isn't a surprise.",
         "Spend 20 minutes on Pathfinder looking at careers and real Michigan wages.",
         "Go to your ISD tech center's open house. It's never too early to see the labs."],
     7: ["This is the year {your} Educational Development Plan (EDP) starts. Ask the counselor to see it.",
-        "Free virtual courses: up to two online classes each semester, paid for by the district. Ask the term before.",
+        "Free virtual courses: up to two online classes each term (semester or trimester), paid for by the district. Ask the term before.",
         "Spend 20 minutes on Pathfinder looking at careers and real Michigan wages.",
         "Go to your ISD tech center's open house together."],
     8: ["This fall: ask the counselor for {your} EDP review. Michigan requires it in grade 8, before high school.",
