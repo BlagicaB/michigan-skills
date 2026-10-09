@@ -4,7 +4,7 @@
    line:  school, college, apprentice, adult, employer, guide (sets the card color) */
 window.PROGRAMS = [
   { name: "Free virtual courses (Section 21f)", line: "school", cost: "Free", ages: "Grades 6-12",
-    what: "Up to two online courses each term (semester or trimester), paid for by your district, from the statewide catalog. Good for classes your school doesn't offer.",
+    what: "Up to two online courses each academic term (semester or trimester), paid for by your district, from the statewide catalog. Good for classes your school doesn't offer.",
     how: "Ask your counselor the term before. Browse courses at micourses.org.",
     url: "https://michiganvirtual.org/resources/21f/", page: "students/#virtual",
     who: ["ms", "hs"], goals: ["credit", "explore"], priority: 8, keywords: "online michigan virtual 21f cyber" },
