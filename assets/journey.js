@@ -2,7 +2,7 @@
 (function () {
   // Paste the Google Apps Script web app /exec URL here (see _src/setup/plan-requests.gs).
   // While it's empty the plan still unlocks; submissions just aren't saved.
-  var FORM_ENDPOINT = "";
+  var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzq5gkO8UU0ePcdWeSmS_mid3TBkcmm-31mrGnkDl3UDK62h9v5uc_9TkwZpfif0kz8/exec";
 
   var root = document.getElementById("here");
   if (!root || !window.PROGRAMS) return;
