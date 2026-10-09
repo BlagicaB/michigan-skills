@@ -22,7 +22,9 @@ var PARTNER_COLUMNS = ["ts", "name", "org", "partner_type", "email", "phone", "r
 function doPost(e) {
   var p = (e && e.parameter) || {};
   if (p.website) return ok_();                       // honeypot: bots fill hidden fields
-  if (!p.email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(p.email)) return ok_();
+  var hasEmail = !!p.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(p.email);
+  if (!hasEmail) { p.email = ""; p.name = ""; }        // anonymous plan: answers only, nothing personal
+  if (p.type === "partner" && !hasEmail) return ok_();
   p.ts = p.ts || new Date().toISOString();
 
   if (p.type === "partner") {
@@ -39,6 +41,7 @@ function doPost(e) {
 
   sheet_(PLAN_SHEET, PLAN_COLUMNS).appendRow(PLAN_COLUMNS.map(function (c) { return p[c] || ""; }));
 
+  if (!hasEmail) return ok_();
   // One plan email per address per 6 hours, so the form can't be used to spam someone.
   var cache = CacheService.getScriptCache(), key = "sent:" + p.email.toLowerCase();
   if (p.consent === "yes" && !cache.get(key) && p.plan_text) {
@@ -73,13 +76,14 @@ function dailyDigest() {
   if (!fresh.length) return;
   var byStage = {};
   fresh.forEach(function (r) { byStage[r[col.stage]] = (byStage[r[col.stage]] || 0) + 1; });
+  var anon = fresh.filter(function (r) { return !r[col.email]; }).length;
   var lines = fresh.map(function (r) {
-    return "- " + r[col.name] + " <" + r[col.email] + "> " + r[col.stage] + (r[col.grade] ? " grade " + r[col.grade] : "") +
+    return "- " + (r[col.email] ? r[col.name] + " <" + r[col.email] + "> " : "(anonymous) ") + r[col.stage] + (r[col.grade] ? " grade " + r[col.grade] : "") +
       ", " + r[col.county] + " County" + (r[col.org] ? ", " + r[col.org] : "") + ", interests: " + r[col.interests] + (r[col.question] ? "\n    Asked: " + r[col.question] : "");
   });
   var asked = fresh.filter(function (r) { return r[col.question]; }).length;
   MailApp.sendEmail(OWNER_EMAIL, "Michigan Skills: " + fresh.length + " new plan requests" + (asked ? ", " + asked + " with questions" : ""),
-    "By stage: " + JSON.stringify(byStage) + "\n\n" + lines.join("\n"));
+    "With email: " + (fresh.length - anon) + ", anonymous: " + anon + "\nBy stage: " + JSON.stringify(byStage) + "\n\n" + lines.join("\n"));
 }
 
 function installDailyDigest() {

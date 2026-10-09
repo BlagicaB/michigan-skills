@@ -179,14 +179,14 @@
             <textarea class="search" id="q-question" rows="3" maxlength="800" placeholder="e.g. He likes to tinker but doesn't know what he wants. Should he try a summer camp at Michigan Tech or something closer to home?"></textarea></label>
         </fieldset>
         <fieldset class="qstep" data-step="4" hidden>
-          <legend>Where should we send your plan?</legend>
-          <p class="small muted" id="q-who-note">You'll see the full plan right away. We'll also email you a copy with the deadlines.</p>
+          <legend>Want a copy by email? (optional)</legend>
+          <p class="small muted" id="q-who-note">Your plan shows up as soon as you click. Add an email only if you want a copy with the deadlines. Skip it and nothing personal is saved.</p>
           <div class="grid two" style="margin-top:.8rem">
-            <label class="field"><span>First name</span><input class="search" name="name" id="q-name" autocomplete="given-name" required></label>
-            <label class="field"><span id="q-email-label">Email</span><input class="search" type="email" name="email" id="q-email" autocomplete="email" required></label>
+            <label class="field"><span>First name (optional)</span><input class="search" name="name" id="q-name" autocomplete="given-name"></label>
+            <label class="field" id="q-email-field"><span id="q-email-label">Email (optional)</span><input class="search" type="email" name="email" id="q-email" autocomplete="email"></label>
             <label class="field" id="q-org-field" hidden><span>Organization</span><input class="search" name="org" id="q-org" autocomplete="organization"></label>
           </div>
-          <label class="check"><input type="checkbox" id="q-consent" required> <span id="q-consent-text">Email me my plan and occasional updates on Michigan programs. I'm 13 or older, or I'm a parent or guardian. We never sell your information.</span></label>
+          <label class="check" id="q-consent-field"><input type="checkbox" id="q-consent"> <span id="q-consent-text">Email me my plan and occasional updates on Michigan programs. I'm 13 or older, or I'm a parent or guardian. We never sell your information.</span></label>
           <input type="text" name="website" id="q-hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         </fieldset>
         <p class="form-error" id="quiz-error" role="alert"></p>
@@ -216,19 +216,6 @@
       <a class="who" style="--c:var(--steel)" href="employers/"><strong>An employer who needs workers</strong><span>Register an apprenticeship, get reimbursed for training and work with schools.</span></a>
       <a class="who" style="--c:var(--green)" href="educators/"><strong>A teacher, counselor or coach</strong><span>CTE, community college, mentors and job center staff. Tools and talking points.</span></a>
       <a class="who" style="--c:var(--green)" href="funding/"><strong>Curious how the money works</strong><span>Per-pupil funding for regular students versus CTE students, and who pays for what.</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="section partner-band" id="for-partners">
-  <div class="wrap">
-    <div class="band">
-      <div>
-        <p class="eyebrow" style="margin:0 0 .4rem">For employers, training centers, colleges and ISDs</p>
-        <h2 style="margin:0 0 .4rem">Be on the map when they choose.</h2>
-        <p style="margin:0">Families and job seekers tell us where they are and what they want. Partners show up in their plans, labeled, at that exact moment. Every program stays listed free.</p>
-      </div>
-      <a class="btn" href="partners/">Partner with us</a>
     </div>
   </div>
 </section>

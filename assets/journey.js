@@ -124,7 +124,7 @@
         "By March 1: the school has to tell families about dual enrollment. If you haven't heard, ask.",
         "Winter and spring: 9th grade course selection. Ask which classes keep AP, dual enrollment and CTE doors open.",
         "Spring: the free PSAT 8/9 matters. A qualifying score lets {you} start college classes the district pays for in grade 9.",
-        "Spring: visit the ISD tech center and ask whether your district has an Early Middle College. Most families decide by grade 10.",
+        "Spring: visit the ISD tech center and ask whether your district has an Early Middle College. Some early colleges admit students entering grade 9, with applications in the winter of grade 8, so ask now.",
         "Before summer: request a free virtual course for fall if the high school doesn't offer a class that fits."],
     9: ["Dual enrollment is open now: up to two college courses this year, paid for by the district. Ask for next semester's deadline.",
         "Review {your} EDP with the counselor. It's required every year of high school.",
@@ -150,8 +150,24 @@
     return t.replace(/\{You\}/g, parent ? "Your child" : "You").replace(/\{Your\}/g, parent ? "Your child's" : "Your")
             .replace(/\{you\}/g, parent ? "your child" : "you").replace(/\{your\}/g, parent ? "your child's" : "your");
   }
+  // Local twists on the grade checklist: counties where districts run CTE themselves, and known deadlines.
+  var LOCAL_STEPS = {
+    Wayne: { 8: ["Now through February: Henry Ford Early College in Dearborn takes Wayne County students entering grade 9. About 50 seats, a lottery if more apply, and applications run December to February. earlycollege.dearbornschools.org"] }
+  };
+  function localize(t) {
+    var isd = COUNTY_TO_ISD[state.county];
+    if (isd && /^Run by local/.test(isd.cte_center || "")) {
+      t = t.replace(/(your )?ISD tech center's open house/g, "high school's career and technical education (CTE) open house")
+           .replace(/the ISD tech center/g, "the high school's CTE classes (in " + state.county + " County, districts run their own)")
+           .replace(/the tech center/g, "the high school's CTE classes");
+    }
+    return t;
+  }
   function stepsFor() {
-    if ((state.stage === "ms" || state.stage === "hs") && GRADE_STEPS[state.grade]) return GRADE_STEPS[state.grade].map(voice);
+    if ((state.stage === "ms" || state.stage === "hs") && GRADE_STEPS[state.grade]) {
+      var extra = ((LOCAL_STEPS[state.county] || {})[state.grade]) || [];
+      return extra.concat(GRADE_STEPS[state.grade]).map(voice).map(localize);
+    }
     return STEPS[state.stage];
   }
 
@@ -277,9 +293,11 @@
       state.grade = b.getAttribute("data-v");
       gEl.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
     };
-    document.getElementById("q-email-label").textContent = st === "ms" ? "Parent or guardian email" : "Email";
+    document.getElementById("q-email-label").textContent = st === "ms" ? "Parent or guardian email (optional)" : "Email (optional)";
+    syncEmailFields();
     document.getElementById("q-role").addEventListener("click", function () {
-      document.getElementById("q-email-label").textContent = (state.stage === "ms" || state.role === "parent") ? "Parent or guardian email" : "Email";
+      document.getElementById("q-email-label").textContent = (state.stage === "ms" || state.role === "parent") ? "Parent or guardian email (optional)" : "Email (optional)";
+      syncEmailFields();
     });
     document.getElementById("q-org-field").hidden = !(st === "employer" || st === "educator");
     quiz.hidden = false; showStep();
@@ -305,10 +323,9 @@
     if (state.step === 2 && !state.interests.length && !state.traits.length) err = (state.stage === "employer" || state.stage === "educator") ? "Pick at least one area." : "Pick at least one thing they enjoy, or a career area.";
     if (state.step === 3 && !state.goal) err = "Pick what matters most.";
     if (state.step === 4) {
-      var email = document.getElementById("q-email").value.trim();
-      if (!document.getElementById("q-name").value.trim()) err = "Add a first name.";
-      else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) err = "That email doesn't look right.";
-      else if (!document.getElementById("q-consent").checked) err = "Check the box so we can send your plan.";
+      var email = kidOnly() ? "" : document.getElementById("q-email").value.trim();
+      if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) err = "That email doesn't look right. Or leave it blank.";
+      else if (email && !document.getElementById("q-consent").checked) err = "Check the box so we can email your plan, or clear the email.";
     }
     document.getElementById("quiz-error").textContent = err;
     return !err;
@@ -344,6 +361,15 @@
     return lines.join("\n");
   }
 
+  // Middle schoolers filling it out themselves never see an email field.
+  function kidOnly() { return state.stage === "ms" && state.role === "student"; }
+  function syncEmailFields() {
+    var hide = kidOnly();
+    document.getElementById("q-email-field").hidden = hide;
+    document.getElementById("q-consent-field").hidden = hide;
+    document.getElementById("q-who-note").textContent = hide ? "Your plan shows up as soon as you click. Want a copy? Ask a parent to build one with their email." : "Your plan shows up as soon as you click. Add an email only if you want a copy with the deadlines. Skip it and nothing personal is saved.";
+  }
+
   function finish() {
     state.county = countySel.value;
     state.question = document.getElementById("q-question").value.trim();
@@ -352,19 +378,22 @@
     var data = {
       ts: new Date().toISOString(), stage: state.stage, county: state.county, isd: isd ? isd.name : "",
       interests: profile().interests.join(", "), traits: state.traits.join(", "), question: state.question, goal: state.goal, when: state.when, role: state.role, grade: state.grade,
-      name: document.getElementById("q-name").value.trim(), email: document.getElementById("q-email").value.trim(),
-      org: document.getElementById("q-org").value.trim(), consent: "yes", page: location.href,
+      name: document.getElementById("q-name").value.trim(), email: kidOnly() ? "" : document.getElementById("q-email").value.trim(),
+      org: document.getElementById("q-org").value.trim(), page: location.href,
       plan_text: planText(isd, list)
     };
+    data.consent = data.email ? "yes" : "";
+    // No email means no name either: the sheet gets anonymous answers only.
+    if (!data.email) data.name = "";
     var bot = document.getElementById("q-hp").value;
     if (FORM_ENDPOINT && !bot) {
       try { fetch(FORM_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(data).toString() }); } catch (e) {}
     }
     store("msm-plan", { stage: state.stage, grade: state.grade, county: state.county, interests: state.interests, traits: state.traits, goal: state.goal, name: data.name });
-    renderPlan(data.name, isd, list);
+    renderPlan(document.getElementById("q-name").value.trim(), isd, list, !!data.email);
   }
 
-  function renderPlan(name, isd, list) {
+  function renderPlan(name, isd, list, emailed) {
     var s = STAGES[state.stage];
     var prof = profile();
     var interestHtml = prof.interests.map(function (k) {
@@ -378,8 +407,8 @@
       countyEdition(isd) +
       '<dt>Every program</dt><dd><a href="https://www.mischooldata.org/cte-programs-offered/" target="_blank" rel="noopener">Search "' + esc(isd.name) + '" on MI School Data</a></dd></dl></div>' : "";
     plan.innerHTML =
-      '<div class="plan-head"><p class="eyebrow" style="margin:0">Step 3 · your plan</p><h2>' + esc(name) + (state.role === "parent" ? ", here is your child\'s route." : ", here is your route.") + '</h2><p class="money">' + s.money + '</p>' +
-      '<p class="small muted">' + (FORM_ENDPOINT ? "A copy is on its way to your inbox. " : "") + '<button class="linkish" type="button" id="print-plan">Print or save as PDF</button></p></div>' +
+      '<div class="plan-head"><p class="eyebrow" style="margin:0">Step 3 · your plan</p><h2>' + (name ? esc(name) + ", h" : "H") + (state.role === "parent" ? "ere is your child\'s route." : "ere is your route.") + '</h2><p class="money">' + s.money + '</p>' +
+      '<p class="small muted">' + (FORM_ENDPOINT && emailed ? "A copy is on its way to your inbox. " : "") + '<button class="linkish" type="button" id="print-plan">Print or save as PDF</button></p></div>' +
       '<div class="grid two plan-top">' + isdHtml +
       '<div class="card"><h3>' + (state.grade === "8" ? "Before high school: your checklist" : state.grade ? "Grade " + state.grade + " checklist" : "Your next steps") + '</h3><ol class="steps">' + stepsFor().map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + '</ol></div></div>' +
       (interestHtml ? '<div class="card" style="margin-top:1rem"><h3>Careers that match what you picked</h3><ul>' + interestHtml + '</ul><p class="sources">Wages and openings: <a href="https://www.michigan.gov/mcda/reports/michigan-hot-50" target="_blank" rel="noopener">Michigan Hot 50, 2026</a></p></div>' : "") +
@@ -459,6 +488,7 @@
     var region = REGION[state.county];
     var hits = S.filter(function (sp) {
       if (sp.type === "community") return false;
+      if (state.stage === "ms" || state.stage === "hs") return false;   // no sponsor cards in plans for students under 18
       var place = !sp.regions || sp.regions.indexOf("Statewide") > -1 || sp.regions.indexOf(region) > -1;
       var who = !sp.stages || sp.stages.indexOf(state.stage) > -1;
       var fit = !sp.interests || sp.interests.some(function (i) { return prof.interests.indexOf(i) > -1; });
