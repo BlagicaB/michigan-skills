@@ -7,6 +7,8 @@ SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pages")
 UPDATED = "October 2026"
 DOMAIN = os.environ.get("MSM_DOMAIN", "michiganskills.com")
 EMAIL = "hello@michiganskills.com"
+import time
+VERSION = time.strftime("%Y%m%d%H%M")
 
 AUDIENCE = [
     ("students/#parents", "Parents"),
@@ -193,6 +195,8 @@ def main():
             body = body + "\n".join(hub)
             ld += faq_ld([i for k, g in FAQS.items() if k != "home" for i in g["items"]])
         html = page(slug, meta["title"], meta["desc"], body, meta.get("scripts", []), meta.get("js", []), ld)
+        # Cache-bust local assets so browsers pick up new CSS, JS and logos right after a deploy
+        html = re.sub(r'((?:src|href)="[^"]*assets/[^"?#]+\.(?:css|js|svg|png))"', lambda m: m.group(1) + "?v=" + VERSION + '"', html)
         open(os.path.join(out_dir, "index.html"), "w").write(html)
         print("wrote", slug or "/")
         urls.append(slug)
