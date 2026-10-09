@@ -7,15 +7,28 @@ UPDATED = "October 2026"
 DOMAIN = os.environ.get("MSM_DOMAIN", "michiganskills.com")
 EMAIL = "hello@michiganskills.com"
 
-NAV = [
-    ("students/", "Students &amp; parents"),
+AUDIENCE = [
+    ("students/#parents", "Parents"),
+    ("students/", "Students"),
     ("adults/", "Adults"),
-    ("trades/", "Trades"),
     ("employers/", "Employers"),
     ("educators/", "Educators"),
+]
+
+NAV = [
+    ("", "Start: You are here"),
+    ("students/", "Students and parents"),
+    ("adults/", "Adults and recent grads"),
+    ("trades/", "Trades and unions"),
+    ("colleges/", "Community colleges"),
+    ("employers/", "Employers"),
+    ("educators/", "Educators and counselors"),
     ("funding/", "The money"),
     ("districts/", "Find your district"),
     ("programs/", "All programs"),
+    ("newsletter/", "Newsletter"),
+    ("partners/", "Partner with us"),
+    ("about/", "About"),
 ]
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#0A3A44"/><path d="M5 9h8l6 7h8" fill="none" stroke="#D9561F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 16h22" fill="none" stroke="#5FB3BF" stroke-width="3" stroke-linecap="round"/><path d="M5 23h8l6-7" fill="none" stroke="#E3AE45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="16" r="3.2" fill="#F6F2E9"/></svg>'
@@ -24,6 +37,7 @@ def page(slug, title, desc, body, scripts, js=()):
     depth = slug.count("/")
     base = "../" * depth
     nav = "".join(f'<li><a href="{base}{href}">{label}</a></li>' for href, label in NAV)
+    aud = "".join(f'<a href="{base}{href}">{label}</a>' for href, label in AUDIENCE)
     canon = f'<link rel="canonical" href="https://{DOMAIN}/{slug}">' if DOMAIN else ""
     data = "".join(f'<script src="{base}assets/data/{s}.js"></script>' for s in scripts)
     data += f'<script src="{base}assets/data/sponsors.js"></script><script src="{base}assets/data/demo-sponsors.js"></script>' if "sponsors" not in scripts else f'<script src="{base}assets/data/demo-sponsors.js"></script>'
@@ -51,11 +65,12 @@ def page(slug, title, desc, body, scripts, js=()):
 <body data-base="{base}">
 <a class="skip" href="#main">Skip to content</a>
 <div class="routes" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<nav class="who-bar" aria-label="Guides by reader"><div class="wrap who-bar-row"><span class="who-label">I'm a</span>{aud}</div></nav>
 <header class="site-head">
   <div class="wrap head-row">
     <a class="brand" href="{base}">{LOGO}<span>Michigan Skills</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>{nav}<li class="nav-cta"><a href="{base}partners/">Partners</a></li></ul></nav>
+    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>{nav}</ul></nav>
   </div>
 </header>
 <main id="main">

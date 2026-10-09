@@ -92,13 +92,20 @@ small, .small { font-size: .9rem; }
 .site-nav ul { list-style: none; margin: 0; padding: 0; }
 .site-nav a { display: block; padding: .55rem .2rem; text-decoration: none; color: var(--ink); font-weight: 600; }
 .site-nav a[aria-current="page"] { color: var(--orange); }
-@media (min-width: 1100px) {
-  .nav-toggle { display: none; }
-  .site-nav, .site-nav.open { display: block; position: static; padding: 0; border: 0; box-shadow: none; background: none; }
-  .site-nav ul { display: flex; gap: .15rem; }
-  .site-nav a { padding: .4rem .55rem; font-size: .93rem; white-space: nowrap; border-radius: var(--radius); }
-  .site-nav a:hover { background: var(--lake-tint); color: var(--ink); }
-}
+/* Menu is a dropdown panel at every width */
+.head-row { position: relative; }
+.site-nav.open { left: auto; right: 16px; width: min(340px, calc(100vw - 32px)); border: 1px solid var(--rule); border-radius: var(--radius); }
+.site-nav li { border-bottom: 1px solid var(--rule); }
+.site-nav li:last-child { border-bottom: 0; }
+.site-nav a:hover { color: var(--orange); }
+
+/* "I'm a" audience bar above the header */
+.who-bar { background: var(--ink); }
+.who-bar-row { display: flex; align-items: center; gap: .2rem 1.1rem; min-height: 40px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+.who-bar-row::-webkit-scrollbar { display: none; }
+.who-label { font: 700 .72rem var(--text); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.who-bar a { color: var(--paper); text-decoration: none; font-weight: 600; font-size: .95rem; padding: .5rem 0; border-bottom: 2px solid transparent; }
+.who-bar a:hover, .who-bar a[aria-current="page"] { border-bottom-color: var(--orange); color: var(--paper); }
 
 /* Hero */
 .hero { padding: 3.5rem 0 3rem; }
@@ -305,3 +312,8 @@ code { font-size: .9em; background: var(--card); padding: .1em .35em; border-rad
 :root[data-theme="dark"] .status.near { color: #F5B293; }
 :root[data-theme="dark"] .status.ask { background: #3A2F12; color: #E8C877; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .status.here { background: #173322; color: #9DD7AB; } :root:not([data-theme="light"]) .status.near { color: #F5B293; } :root:not([data-theme="light"]) .status.ask { background: #3A2F12; color: #E8C877; } }
+@media (max-width: 480px) {
+  .who-bar-row { gap: .2rem .6rem; }
+  .who-bar a { font-size: .86rem; }
+  .who-label { font-size: .66rem; letter-spacing: .1em; }
+}

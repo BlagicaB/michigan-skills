@@ -18,15 +18,15 @@
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
   if (toggle && nav) {
-    toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+    var setOpen = function (open) { nav.classList.toggle("open", open); toggle.setAttribute("aria-expanded", open ? "true" : "false"); };
+    toggle.addEventListener("click", function (e) { e.stopPropagation(); setOpen(!nav.classList.contains("open")); });
+    document.addEventListener("click", function (e) { if (!nav.contains(e.target)) setOpen(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
   }
 
   // Mark the current page in the nav
   var here = location.pathname.replace(/index\.html$/, "");
-  document.querySelectorAll(".site-nav a").forEach(function (a) {
+  document.querySelectorAll(".site-nav a, .who-bar a").forEach(function (a) {
     var p = a.getAttribute("href").replace(/index\.html$/, "");
     var abs = new URL(p, location.href).pathname;
     if (abs === here) a.setAttribute("aria-current", "page");
