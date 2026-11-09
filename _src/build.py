@@ -34,6 +34,7 @@ NAV = [
     ("careers/", "Career guides: pay and training"),
     ("dual-enrollment/", "Guide: Dual enrollment"),
     ("early-middle-college/", "Guide: Early Middle College"),
+    ("2-years-free/", "Guide: 2 years free community college"),
     ("community-college-guarantee/", "Guide: Community College Guarantee"),
     ("michigan-reconnect/", "Guide: Michigan Reconnect"),
     ("michigan-achievement-scholarship/", "Guide: Achievement Scholarship"),
@@ -143,6 +144,7 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
         <li><a href="{base}colleges/">Community colleges</a></li>
         <li><a href="{base}dual-enrollment/">Dual enrollment</a></li>
         <li><a href="{base}early-middle-college/">Early Middle College</a></li>
+        <li><a href="{base}2-years-free/">2 years free community college</a></li>
         <li><a href="{base}community-college-guarantee/">Community College Guarantee</a></li>
         <li><a href="{base}michigan-reconnect/">Michigan Reconnect</a></li>
         <li><a href="{base}michigan-achievement-scholarship/">Achievement Scholarship</a></li>

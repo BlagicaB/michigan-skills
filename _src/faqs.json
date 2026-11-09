@@ -569,5 +569,40 @@
     "Michigan LEO"
    ]
   ]
+ },
+ "2-years-free/": {
+  "group": "2 years free community college",
+  "items": [
+   [
+    "Is community college free in Michigan?",
+    "It can be. Two state programs pay in-district tuition and mandatory fees: the Community College Guarantee for people who finished high school in 2023 or later and Michigan Reconnect for adults 21 and older without a college degree.",
+    "https://www.michigan.gov/mistudentaid/programs/michigan-achievement-scholarship/community-college-guarantee",
+    "MI Student Aid"
+   ],
+   [
+    "What does 2 years free mean in Michigan?",
+    "It refers to free tuition at a Michigan community college through the Community College Guarantee or Michigan Reconnect. A full-time associate degree normally takes two years. The Guarantee can be renewed for up to three years and Reconnect gives you up to four years to finish.",
+    "https://www.michigan.gov/reconnect/community-college",
+    "Michigan Reconnect"
+   ],
+   [
+    "Is out-of-district community college free in Michigan?",
+    "No. Both programs pay in-district tuition. If the college is outside your district you get a discount and pay the difference, so ask the college's financial aid office whether you count as in-district.",
+    "https://www.michigan.gov/reconnect/faqs",
+    "Reconnect FAQs"
+   ],
+   [
+    "Does free community college in Michigan cover books?",
+    "No. Books, supplies and living costs are not covered. Students who qualify for a Pell Grant get an extra $1,000 through the Community College Guarantee, which can help.",
+    "https://www.michigan.gov/mistudentaid/programs/michigan-achievement-scholarship/community-college-guarantee",
+    "MI Student Aid"
+   ],
+   [
+    "Can I go part time and still get free community college in Michigan?",
+    "Under Michigan Reconnect, yes, with at least 12 credits an academic year. The Community College Guarantee requires full-time enrollment within 15 months of finishing high school.",
+    "https://www.michigan.gov/reconnect/community-college",
+    "Michigan Reconnect"
+   ]
+  ]
  }
 }
