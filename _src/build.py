@@ -45,6 +45,7 @@ NAV = [
     ("michigan-works/", "Guide: Michigan Works!"),
     ("workforce-pell/", "Guide: Workforce Pell"),
     ("going-pro/", "Guide: Going PRO Talent Fund"),
+    ("blog/", "Blog"),
     ("newsletter/", "Newsletter"),
     ("partners/", "Partner with us"),
     ("faq/", "Questions and answers"),
@@ -70,6 +71,13 @@ def site_ld():
              "email": EMAIL, "logo": f"https://{DOMAIN}/favicon.svg", "areaServed": "Michigan",
              "description": "A free, independent guide to every public path into skilled work in Michigan."},
             {"@context": "https://schema.org", "@type": "WebSite", "name": "Michigan Skills", "url": f"https://{DOMAIN}/"}]
+    return '<script type="application/ld+json">' + json.dumps(data) + "</script>"
+
+def article_ld(slug, title, desc, published):
+    data = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": title, "description": desc,
+            "datePublished": published, "dateModified": published, "mainEntityOfPage": f"https://{DOMAIN}/{slug}",
+            "image": f"https://{DOMAIN}/assets/share.png", "author": {"@type": "Person", "name": "Blagica"},
+            "publisher": {"@type": "Organization", "name": "Michigan Skills", "logo": {"@type": "ImageObject", "url": f"https://{DOMAIN}/icon-192.png"}}}
     return '<script type="application/ld+json">' + json.dumps(data) + "</script>"
 
 def page(slug, title, desc, body, scripts, js=(), ld=""):
@@ -156,6 +164,7 @@ def page(slug, title, desc, body, scripts, js=(), ld=""):
     <div>
       <h2 class="foot-h">For the people who help</h2>
       <ul>
+        <li><a href="{base}blog/">Blog</a></li>
         <li><a href="{base}employers/">Employers &amp; apprenticeship sponsors</a></li>
         <li><a href="{base}educators/">Teachers, counselors &amp; job centers</a></li>
         <li><a href="{base}funding/">How the money works</a></li>
@@ -206,7 +215,11 @@ def main():
                 hub.append("</div></section>")
             body = body + "\n".join(hub)
             ld += faq_ld([i for k, g in FAQS.items() if k != "home" for i in g["items"]])
+        if meta.get("published"):
+            ld += article_ld(slug, meta["title"], meta["desc"], meta["published"])
         html = page(slug, meta["title"], meta["desc"], body, meta.get("scripts", []), meta.get("js", []), ld)
+        if meta.get("published"):
+            html = html.replace('<meta property="og:type" content="website">', '<meta property="og:type" content="article">')
         # Cache-bust local assets so browsers pick up new CSS, JS and logos right after a deploy
         html = re.sub(r'((?:src|href)="[^"]*assets/[^"?#]+\.(?:css|js|svg|png))"', lambda m: m.group(1) + "?v=" + VERSION + '"', html)
         open(os.path.join(out_dir, "index.html"), "w").write(html)
