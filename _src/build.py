@@ -81,9 +81,9 @@ def blog_list(posts):
         items.append(f'<article style="margin-bottom:2.2rem"><p class="small muted">{when}</p><h2><a href="{href}">{m["title"]}</a></h2><p>{m.get("teaser", m["desc"])}</p></article>')
     return "\n".join(items)
 
-def article_ld(slug, title, desc, published):
+def article_ld(slug, title, desc, published, updated=None):
     data = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": title, "description": desc,
-            "datePublished": published, "dateModified": published, "mainEntityOfPage": f"https://{DOMAIN}/{slug}",
+            "datePublished": published, "dateModified": updated or published, "mainEntityOfPage": f"https://{DOMAIN}/{slug}",
             "image": f"https://{DOMAIN}/assets/share.png", "author": {"@type": "Person", "name": "Blagica"},
             "publisher": {"@type": "Organization", "name": "Michigan Skills", "logo": {"@type": "ImageObject", "url": f"https://{DOMAIN}/icon-192.png"}}}
     return '<script type="application/ld+json">' + json.dumps(data) + "</script>"
@@ -233,7 +233,7 @@ def main():
             body = body + "\n".join(hub)
             ld += faq_ld([i for k, g in FAQS.items() if k != "home" for i in g["items"]])
         if meta.get("published"):
-            ld += article_ld(slug, meta["title"], meta["desc"], meta["published"])
+            ld += article_ld(slug, meta["title"], meta["desc"], meta["published"], meta.get("updated"))
         html = page(slug, meta["title"], meta["desc"], body, meta.get("scripts", []), meta.get("js", []), ld)
         if meta.get("published"):
             html = html.replace('<meta property="og:type" content="website">', '<meta property="og:type" content="article">')
