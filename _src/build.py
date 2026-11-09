@@ -73,6 +73,14 @@ def site_ld():
             {"@context": "https://schema.org", "@type": "WebSite", "name": "Michigan Skills", "url": f"https://{DOMAIN}/"}]
     return '<script type="application/ld+json">' + json.dumps(data) + "</script>"
 
+def blog_list(posts):
+    items = []
+    for m in posts:
+        when = time.strftime("%B %-d, %Y", time.strptime(m["published"], "%Y-%m-%d"))
+        href = m["slug"].split("blog/", 1)[1]
+        items.append(f'<article style="margin-bottom:2.2rem"><p class="small muted">{when}</p><h2><a href="{href}">{m["title"]}</a></h2><p>{m.get("teaser", m["desc"])}</p></article>')
+    return "\n".join(items)
+
 def article_ld(slug, title, desc, published):
     data = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": title, "description": desc,
             "datePublished": published, "dateModified": published, "mainEntityOfPage": f"https://{DOMAIN}/{slug}",
@@ -186,6 +194,13 @@ def main():
     urls = []
     global FAQS
     FAQS = json.load(open(FAQS_PATH))
+    posts = []
+    for fn in sorted(os.listdir(SRC)):
+        if fn.endswith(".html"):
+            m = json.loads(re.search(r"<!--meta(.*?)-->", open(os.path.join(SRC, fn)).read(), re.S).group(1))
+            if m.get("published"):
+                posts.append(m)
+    posts.sort(key=lambda m: (m["published"], m.get("order", 0)), reverse=True)
     for fn in sorted(os.listdir(SRC)):
         if not fn.endswith(".html"):
             continue
@@ -196,6 +211,8 @@ def main():
             if bad in body or bad in meta["desc"]:
                 sys.exit(f"long dash found in {fn}")
         slug = meta["slug"]
+        if slug == "blog/":
+            body = body.replace("<!--BLOG_LIST-->", blog_list(posts))
         out_dir = os.path.join(SITE, slug)
         os.makedirs(out_dir, exist_ok=True)
         ld = site_ld() if slug == "" else ""
